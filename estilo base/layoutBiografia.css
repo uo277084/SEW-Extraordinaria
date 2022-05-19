@@ -1,0 +1,43 @@
+body{
+    display: grid;
+    grid-template-areas: "hea"
+        "nav"
+        "main"
+        "foo"
+}
+
+header{
+    grid-area: hea;
+}
+
+nav{
+    grid-area: nav;
+    text-align: center;
+}
+
+main{
+    grid-area: main;
+}
+
+section{
+    display: grid;
+    grid: "h h"
+        "s i"
+}
+
+section img video audio{
+    grid-area: i;
+}
+
+section p{
+    grid-area: s;
+    text-align: justify;
+}
+
+section h2{
+    grid-area: h;
+}
+
+footer{
+    grid-area: foo;
+}

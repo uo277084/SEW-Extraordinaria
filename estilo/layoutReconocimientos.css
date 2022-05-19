@@ -1,0 +1,59 @@
+/*Especificidad: 001*/
+main{
+    display: grid;
+    grid:"h h"
+        "sec asi";
+}
+
+/*Especificidad: 002*/
+main h1{
+    grid-area: h;
+}
+
+/*Especificidad: 002*/
+main section{
+    grid-area: sec;
+    display: grid;
+    grid: "h"
+        "p"
+        "o"
+}
+
+/*Especificidad: 002*/
+section h2{
+    grid-area: h;
+}
+
+/*Especificidad: 002*/
+section p{
+    grid-area: p;
+}
+
+/*Especificidad: 002*/
+section ol{
+    grid-area: o;
+}
+
+/*Especificidad: 002*/
+main aside{
+    grid-area: asi;
+    display: grid;
+    grid: "h"
+        "p"
+        "u";
+}
+
+/*Especificidad: 002*/
+aside h2{
+    grid-area: h;
+}
+
+/*Especificidad: 002*/
+aside p{
+    grid-area: p;
+}
+
+/*Especificidad: 002*/
+aside ul{
+    grid-area: u;
+}

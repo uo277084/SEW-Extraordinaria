@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+
+<html lang="es">
+    <head>
+        <!-- Datos que describen el documento -->
+        <meta charset="UTF-8" />
+        <meta name="author" content="Tania Bajo García" />
+        <meta name="description" content="Opinión de Alan Kay" />
+        <meta name="keywords" content="alan,kay,opinión" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Opinión de Alan Kay</title>
+        <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
+        <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    </head>
+
+    <body>
+        <header>
+            <h1>Conoce a Alan Kay</h1>
+            <h2>"La mejor forma de predecir el futuro es inventarlo"</h2>
+        </header>
+
+        <nav>
+            <a title="Biografía de Alan Kay" tabindex= "1" href= "biografia.html" accesskey="B">Biografía</a>
+            <a title="Reconocimientos de Alan Kay" tabindex= "2" href= "listaReconocimientos.html" accesskey="R">Reconocimientos</a>
+            <a title="Aportaciones de Alan Kay" tabindex= "2" href="tablaAportaciones.html" accesskey="A">Aportaciones</a>
+        </nav>
+
+        <main>
+        <!-- Opinión -->
+        <h1>Opinión de Alan Kay</h1>
+        <form name="Opinión de Alan Kay">
+            <fieldset>
+                <legend>¿Conocías a Alan Kay?</legend>
+                    <input id="conocerSi" type="radio" value="Sí" name="conocer">
+                    <label for="conocerSi">Sí</label><br />
+                    <input id="conocerNo" type="radio" value="No" name="conocer" checked>
+                    <label for="conocerNo">No</label><br />
+            </fieldset>
+
+            <fieldset>
+                <legend>¿Se lo recomendarías a algún conocido?</legend>
+                    <input id="recomendarSi" type="radio" value="Sí" name="recomendar" checked>
+                    <label for="recomendarSi">Sí</label><br />
+                    <input id="recomendarNo" type="radio" value="No" name="recomendar">
+                    <label for="recomendarNo">No</label><br />
+            </fieldset>
+
+            <fieldset>
+                <legend>¿Qué te ha parecido la información sobre Alan Kay?</legend>
+                    <input id="interesante" type="checkbox" name="info" value="interesante" checked/>
+                    <label for="interesante">Interesante</label><br />
+                    <input id="importante" type="checkbox" name="info" value="importante" />
+                    <label for="importante">Importante</label><br />
+                    <input id="aburrida" type="checkbox" name="info" value="aburrida" />
+                    <label for="aburrida">Aburrida</label><br />
+                    <input id="yalaconocia" type="checkbox" name="info" value="ya la conocia" />
+                    <label for="yalaconocia">Ya la conocía</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Registra tu resultado</legend>
+                <input id="fname" type="text" >
+                <label for="fname">Nombre</label><br />
+                <input id="fapellidos" type="text" >
+                <label for="fapellidos">Apellidos</label><br />
+                <input id="fnacimiento" type="date">
+                <label for="fnacimiento">Fecha de nacimiento</label><br />
+                <input id="femail" type="email">
+                <label for="femail">Email</label><br />
+                <input id="submit" type="submit" value="Envia tu resultado">
+                <!--<label for="op" type="text"></label>-->
+            </fieldset>
+        </form>
+    </main>
+
+        <footer>
+            <p>Copyright @2021 Tania Bajo</p>
+        </footer>
+    </body>
+</html>

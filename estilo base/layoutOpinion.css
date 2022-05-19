@@ -1,0 +1,39 @@
+body{
+    display: grid;
+    grid-template-areas: "hea"
+        "nav"
+        "main"
+        "foo"
+}
+
+header{
+    grid-area: hea;
+}
+
+nav{
+    grid-area: nav;
+    text-align: center;
+}
+
+main{
+    grid-area: main;
+    display: grid;
+    grid:"h"
+        "f";
+}
+
+main h1{
+    grid-area: h;
+}
+
+main form{
+    grid-area: f;
+}
+
+form{
+    display: flex;
+}
+
+footer{
+    grid-area: foo;
+}
