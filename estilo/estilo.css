@@ -2,7 +2,7 @@
 body {
     font-family: Arial, sans-serif;
     color: #000;
-    background-color: #D7B5A7;
+    background-color: #ffe3e3;
 }
 
 /*Especificidad: 002*/
@@ -27,7 +27,7 @@ footer p {
 /*Especificidad: 001*/
 h1 {
     color: #fff;
-    background-color: #69433F;
+    background-color: #c61501;
     text-transform: uppercase;
     padding: 1.5em;
     text-align: center;
@@ -39,7 +39,7 @@ h1 {
 
 /*Especificidad: 001*/
 h2 {
-    color: #512013;
+    color: #c61501;
     text-transform: uppercase;
     font-family: Chalkduster, fantasy;
     font-size: 22pt;
@@ -58,7 +58,7 @@ p {
 
 /*Especificidad: 001*/
 a {
-    color: #0000A3;
+    color: #00006b;
     font-weight: bold;
     font-size: 15pt;
 }

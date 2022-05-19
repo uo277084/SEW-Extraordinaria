@@ -6,3 +6,9 @@ section audio {
     margin: auto;
 
 }
+
+/*Especificidad: 002*/
+section video {
+    width: 50%;
+    height: auto;
+}
