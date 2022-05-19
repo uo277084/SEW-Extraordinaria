@@ -1,0 +1,8 @@
+/*Especificidad: 002*/
+section img,
+section video,
+section audio {
+    display: block;
+    margin: auto;
+
+}

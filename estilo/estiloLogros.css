@@ -1,0 +1,35 @@
+/*Especificidad: 001*/
+ol {
+    list-style: none;
+}
+
+/*Especificidad: 002*/
+ol li,
+ul li {
+    font-size: 14pt;
+    margin-left: 1.2rem;
+}
+
+/*Especificidad: 002*/
+ol li {
+    counter-increment: steps;
+}
+
+/*Especificidad: 003*/
+ol li::before {
+    content: counter(steps);
+    margin-right: 0.5rem;
+    background: #512013;
+    color: white;
+    width: 1.2em;
+    height: 1.2em;
+    display: inline-grid;
+    place-items: center;
+    line-height: 1em;
+}
+
+/*Especificidad: 001*/
+ul {
+    margin-right: 0.5rem;
+    list-style: square;
+}
