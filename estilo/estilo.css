@@ -28,6 +28,7 @@ footer p {
 h1 {
     color: #fff;
     background-color: #c61501;
+    border-radius: 5ex;
     text-transform: uppercase;
     padding: 1.5em;
     text-align: center;
