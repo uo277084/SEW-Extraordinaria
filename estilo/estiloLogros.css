@@ -19,7 +19,7 @@ ol li {
 ol li::before {
     content: counter(steps);
     margin-right: 0.5rem;
-    background: #512013;
+    background: #a00101;
     color: white;
     width: 1.2em;
     height: 1.2em;
