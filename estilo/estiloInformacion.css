@@ -4,16 +4,6 @@ section video,
 section audio {
     display: block;
     margin: auto;
-
-}
-
-/*Especificidad: 002*/
-section video {
-    width: 50%;
-    height: auto;
-}
-
-section img {
     width: 50%;
     height: auto;
 }
