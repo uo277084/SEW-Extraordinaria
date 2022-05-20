@@ -1,5 +1,5 @@
 <!ELEMENT sporting (datosEquipo, pais+)>
-	<!ATTLIST pais
+	<!ATTLIST sporting
 		nombre CDATA #REQUIRED>
 
 	<!ELEMENT datosEquipo (fechaIni?, fechaFin?, antiguedad, ciudad)>
@@ -39,55 +39,13 @@
 			edad CDATA #REQUIRED>
 
 	<!ELEMENT datosJugador (fechaNac, altura, ciudad, foto)>
+	<!ELEMENT fechaNac (#PCDATA)>
 	<!ATTLIST fechaNac
 		dia CDATA #REQUIRED
 		mes CDATA #REQUIRED
 		year CDATA #REQUIRED>
 		
 	<!ELEMENT altura (#PCDATA)>
-	<!ELEMENT ciudad (#PCDATA)>
 	<!ELEMENT foto (#PCDATA)>
 	<!ATTLIST foto
 		ruta CDATA #REQUIRED>
-	
-
-
-<!ELEMENT arbol (persona+)>
-<!ELEMENT persona (datos, persona?, persona?)>
-<!ELEMENT datos (nacimiento, fallecimiento?, foto?, video*, comentario)>
-<!ELEMENT nacimiento (fechaN, lugarN, coordN)>
-<!ELEMENT fechaN (#PCDATA)>
-<!ELEMENT lugarN (#PCDATA)>
-<!ELEMENT coordN (longitud, latitud, altitud)>
-<!ELEMENT fallecimiento (fechaF, lugarF, coordF)>
-<!ELEMENT fechaF (#PCDATA)>
-<!ELEMENT lugarF (#PCDATA)>
-<!ELEMENT coordF (longitud, latitud, altitud)>
-<!ELEMENT longitud (#PCDATA)>
-<!ELEMENT latitud (#PCDATA)>
-<!ELEMENT altitud (#PCDATA)>
-<!ELEMENT foto (#PCDATA)>
-<!ELEMENT video (#PCDATA)>
-<!ELEMENT comentario (#PCDATA)>
-
-<!ATTLIST persona
-	nombre CDATA #REQUIRED
-	apellidos CDATA #REQUIRED>
-<!ATTLIST fechaN
-	dia CDATA #REQUIRED
-	mes CDATA #REQUIRED
-	year CDATA #REQUIRED>
-<!ATTLIST lugarN
-	nombre CDATA #REQUIRED
-	pais CDATA #REQUIRED>
-<!ATTLIST fechaF
-	dia CDATA #REQUIRED
-	mes CDATA #REQUIRED
-	year CDATA #REQUIRED>
-<!ATTLIST lugarF
-	nombre CDATA #REQUIRED
-	pais CDATA #REQUIRED>
-<!ATTLIST foto
-	ruta CDATA #REQUIRED>
-<!ATTLIST video
-	ruta CDATA #REQUIRED>

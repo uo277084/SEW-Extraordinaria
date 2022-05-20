@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sporting SYSTEM "nodo.dtd">
+<sporting nombre="Real Sporting de Gijón">
+    <datosEquipo>
+        <antiguedad>
+            1905
+        </antiguedad>
+        <ciudad>
+            Gijón
+        </ciudad>
+    </datosEquipo>
+    <pais nombre="España">
+        <datosPais>
+            <coord>
+                <longitud>
+                    -3.683333
+                </longitud>
+                <latitud>
+                    40.4
+                </latitud>
+            </coord>
+            <poblacion>
+                47,35 millones
+            </poblacion>
+            <continente>
+                Europa
+            </continente>
+        </datosPais>
+        <jugador nombre="Iván" apellidos="Cuéllar Sacristán" edad="37">
+            <datosJugador>
+                <fechaNac dia="27" mes="05" year="1984"></fechaNac>
+                <altura>
+                    1.87
+                </altura>
+                <ciudad>
+                    Mérida
+                </ciudad>
+                <foto ruta="../multimedia/xml/cuellar.jpg"></foto>
+            </datosJugador>
+        </jugador>
+        <jugador nombre="Diego" apellidos="Mariño Villar" edad="32">
+            <datosJugador>
+                <fechaNac dia="9" mes="05" year="1990"></fechaNac>
+                <altura>
+                    1.85
+                </altura>
+                <ciudad>
+                    Vigo
+                </ciudad>
+                <foto ruta="../multimedia/xml/diego-m.jpg"></foto>
+            </datosJugador>
+        </jugador>
+        <jugador nombre="Guillermo" apellidos="Rosas Alonso" edad="22">
+            <datosJugador>
+                <fechaNac dia="17" mes="05" year="2000"></fechaNac>
+                <altura>
+                    1.75
+                </altura>
+                <ciudad>
+                    Gijón
+                </ciudad>
+                <foto ruta="../multimedia/xml/guille-rosas.jpg"></foto>
+            </datosJugador>
+        </jugador>
+        <jugador nombre="Borja" apellidos="López Menéndez" edad="28">
+            <datosJugador>
+                <fechaNac dia="2" mes="02" year="1994"></fechaNac>
+                <altura>
+                    1.91
+                </altura>
+                <ciudad>
+                    Gijón
+                </ciudad>
+                <foto ruta="../multimedia/xml/borja-lopez.jpg"></foto>
+            </datosJugador>
+        </jugador>
+        <jugador nombre="Juan" apellidos="Berrocal González" edad="23">
+            <datosJugador>
+                <fechaNac dia="5" mes="02" year="1999"></fechaNac>
+                <altura>
+                    1.81
+                </altura>
+                <ciudad>
+                    Jerez de la Frontera
+                </ciudad>
+                <foto ruta="../multimedia/xml/juan-berrocal.jpg"></foto>
+            </datosJugador>
+        </jugador>
+        <jugador nombre="Jordi" apellidos="Calavera Espinach" edad="26">
+            <datosJugador>
+                <fechaNac dia="2" mes="08" year="1995"></fechaNac>
+                <altura>
+                    1.78
+                </altura>
+                <ciudad>
+                    Cabra del Campo
+                </ciudad>
+                <foto ruta="../multimedia/xml/jordi-calavera.jpg"></foto>
+            </datosJugador>
+        </jugador>
+        <jugador nombre="Aitor" apellidos="García Flores" edad="28">
+            <datosJugador>
+                <fechaNac dia="25" mes="03" year="1994"></fechaNac>
+                <altura>
+                    1.73
+                </altura>
+                <ciudad>
+                    Gibraleón
+                </ciudad>
+                <foto ruta="../multimedia/xml/aitor-garcia.jpg"></foto>
+            </datosJugador>
+        </jugador>
+        <jugador nombre="Pedro" apellidos="Díaz Fanjul" edad="23">
+            <datosJugador>
+                <fechaNac dia="5" mes="06" year="1998"></fechaNac>
+                <altura>
+                    1.80
+                </altura>
+                <ciudad>
+                    Gijón
+                </ciudad>
+                <foto ruta="../multimedia/xml/pedro-diaz.jpg"></foto>
+            </datosJugador>
+        </jugador>
+        <jugador nombre="Jonathan" apellidos="Rodríguez Menéndez" edad="30">
+            <datosJugador>
+                <fechaNac dia="9" mes="07" year="1991"></fechaNac>
+                <altura>
+                    1.79
+                </altura>
+                <ciudad>
+                    Cangas del Narcea
+                </ciudad>
+                <foto ruta="../multimedia/xml/jony.jpg"></foto>
+            </datosJugador>
+        </jugador>
+        <jugador nombre="Nacho" apellidos="Méndez-Navia Fernández" edad="24">
+            <datosJugador>
+                <fechaNac dia="30" mes="03" year="1998"></fechaNac>
+                <altura>
+                    1.79
+                </altura>
+                <ciudad>
+                    Luanco
+                </ciudad>
+                <foto ruta="../multimedia/xml/nacho-mendez.jpg"></foto>
+            </datosJugador>
+        </jugador>
+        <jugador nombre="José" apellidos="Gragera Amado" edad="22">
+            <datosJugador>
+                <fechaNac dia="14" mes="05" year="2000"></fechaNac>
+                <altura>
+                    1.86
+                </altura>
+                <ciudad>
+                    Gijón
+                </ciudad>
+                <foto ruta="../multimedia/xml/gragera.jpg"></foto>
+            </datosJugador>
+        </jugador>
+        <jugador nombre="Christian" apellidos="Rivera Hernández" edad="24">
+            <datosJugador>
+                <fechaNac dia="9" mes="07" year="1997"></fechaNac>
+                <altura>
+                    1.91
+                </altura>
+                <ciudad>
+                    Gijón
+                </ciudad>
+                <foto ruta="../multimedia/xml/rivera.jpg"></foto>
+            </datosJugador>
+        </jugador>
+        <jugador nombre="Francisco José" apellidos="Villalba Rodrigo" edad="24">
+            <datosJugador>
+                <fechaNac dia="11" mes="05" year="1998"></fechaNac>
+                <altura>
+                    1.70
+                </altura>
+                <ciudad>
+                    Valencia
+                </ciudad>
+                <foto ruta="../multimedia/xml/villalba.jpg"></foto>
+            </datosJugador>
+        </jugador>
+        <jugador nombre="Gaspar" apellidos="Campos-Ansó Fernández" edad="22">
+            <datosJugador>
+                <fechaNac dia="27" mes="03" year="2000"></fechaNac>
+                <altura>
+                    1.75
+                </altura>
+                <ciudad>
+                    Gijón
+                </ciudad>
+                <foto ruta="../multimedia/xml/gaspar.jpg"></foto>
+            </datosJugador>
+        </jugador>
+        <jugador nombre="Víctor" apellidos="Campuzano Bonilla" edad="24">
+            <datosJugador>
+                <fechaNac dia="31" mes="05" year="1997"></fechaNac>
+                <altura>
+                    1.74
+                </altura>
+                <ciudad>
+                    Barcelona
+                </ciudad>
+                <foto ruta="../multimedia/xml/campuzano.jpg"></foto>
+            </datosJugador>
+        </jugador>
+    </pais>
+    <pais nombre="Ucrania">
+        <datosPais>
+            <coord>
+                <longitud>
+                    32.5
+                </longitud>
+                <latitud>
+                    49.5
+                </latitud>
+            </coord>
+            <poblacion>
+                44,13 millones
+            </poblacion>
+            <continente>
+                Europa
+            </continente>
+        </datosPais>
+        <jugador nombre="Vasyl" apellidos="Kravets" edad="24">
+            <datosJugador>
+                <fechaNac dia="20" mes="08" year="1997"></fechaNac>
+                <altura>
+                    1.83
+                </altura>
+                <ciudad>
+                    Raión de Horodok
+                </ciudad>
+                <foto ruta="../multimedia/xml/kravets.jpg"></foto>
+            </datosJugador>
+        </jugador>
+        <jugador nombre="Bogdan" apellidos="Milovanov" edad="24">
+            <datosJugador>
+                <fechaNac dia="19" mes="04" year="1998"></fechaNac>
+                <altura>
+                    1.78
+                </altura>
+                <ciudad>
+                    Lugansk
+                </ciudad>
+                <foto ruta="../multimedia/xml/bogdan.jpg"></foto>
+            </datosJugador>
+        </jugador>
+    </pais>
+    <pais nombre="Francia">
+        <datosPais>
+            <coord>
+                <longitud>
+                    2.2
+                </longitud>
+                <latitud>
+                    46.2
+                </latitud>
+            </coord>
+            <poblacion>
+                66,87 millones
+            </poblacion>
+            <continente>
+                Europa
+            </continente>
+        </datosPais>
+        <jugador nombre="Jean-Sylvain" apellidos="Claude Babin" edad="35">
+            <datosJugador>
+                <fechaNac dia="14" mes="10" year="1986"></fechaNac>
+                <altura>
+                    1.82
+                </altura>
+                <ciudad>
+                    Corbeil-Essonnes
+                </ciudad>
+                <foto ruta="../multimedia/xml/babin.jpg"></foto>
+            </datosJugador>
+        </jugador>
+    </pais>
+    <pais nombre="Panamá">
+        <datosPais>
+            <coord>
+                <longitud>
+                    -79.5
+                </longitud>
+                <latitud>
+                    8.5
+                </latitud>
+            </coord>
+            <poblacion>
+                3,5 millones
+            </poblacion>
+            <continente>
+                América
+            </continente>
+        </datosPais>
+        <jugador nombre="José Luis" apellidos="Rodríguez Francis" edad="23">
+            <datosJugador>
+                <fechaNac dia="19" mes="06" year="1998"></fechaNac>
+                <altura>
+                    1.80
+                </altura>
+                <ciudad>
+                    Ciudad de Panamá
+                </ciudad>
+                <foto ruta="../multimedia/xml/puma.jpg"></foto>
+            </datosJugador>
+        </jugador>
+    </pais>
+    <pais nombre="Montenegro">
+        <datosPais>
+            <coord>
+                <longitud>
+                    19.5
+                </longitud>
+                <latitud>
+                    42.5
+                </latitud>
+            </coord>
+            <poblacion>
+                1,5 millones
+            </poblacion>
+            <continente>
+                Europa
+            </continente>
+        </datosPais>
+        <jugador nombre="Uros" apellidos="Durdevic" edad="28">
+            <datosJugador>
+                <fechaNac dia="2" mes="03" year="1994"></fechaNac>
+                <altura>
+                    1.81
+                </altura>
+                <ciudad>
+                    Obrenovac
+                </ciudad>
+                <foto ruta="../multimedia/xml/uros.jpg"></foto>
+            </datosJugador>
+        </jugador>
+    </pais>
+</sporting>
