@@ -12,3 +12,8 @@ section video {
     width: 50%;
     height: auto;
 }
+
+section img {
+    width: 1000%;
+    height: auto;
+}
