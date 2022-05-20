@@ -1,9 +1,20 @@
 /*Especificidad: 002*/
+section img {
+    width: 50%;
+    height: auto;
+}
+
+/*Especificidad: 002*/
 section img,
 section video,
 section audio {
     display: block;
     margin: auto;
+
+}
+
+/*Especificidad: 002*/
+section video {
     width: 50%;
     height: auto;
 }
