@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE sporting SYSTEM "nodo.dtd">
+<!DOCTYPE sporting SYSTEM "./equipo.dtd">
 <sporting nombre="Real Sporting de Gijón">
     <datosEquipo>
         <antiguedad>
@@ -50,18 +50,6 @@
                 <foto ruta="../multimedia/xml/diego-m.jpg"></foto>
             </datosJugador>
         </jugador>
-        <jugador nombre="Guillermo" apellidos="Rosas Alonso" edad="22">
-            <datosJugador>
-                <fechaNac dia="17" mes="05" year="2000"></fechaNac>
-                <altura>
-                    1.75
-                </altura>
-                <ciudad>
-                    Gijón
-                </ciudad>
-                <foto ruta="../multimedia/xml/guille-rosas.jpg"></foto>
-            </datosJugador>
-        </jugador>
         <jugador nombre="Borja" apellidos="López Menéndez" edad="28">
             <datosJugador>
                 <fechaNac dia="2" mes="02" year="1994"></fechaNac>
@@ -72,42 +60,6 @@
                     Gijón
                 </ciudad>
                 <foto ruta="../multimedia/xml/borja-lopez.jpg"></foto>
-            </datosJugador>
-        </jugador>
-        <jugador nombre="Juan" apellidos="Berrocal González" edad="23">
-            <datosJugador>
-                <fechaNac dia="5" mes="02" year="1999"></fechaNac>
-                <altura>
-                    1.81
-                </altura>
-                <ciudad>
-                    Jerez de la Frontera
-                </ciudad>
-                <foto ruta="../multimedia/xml/juan-berrocal.jpg"></foto>
-            </datosJugador>
-        </jugador>
-        <jugador nombre="Jordi" apellidos="Calavera Espinach" edad="26">
-            <datosJugador>
-                <fechaNac dia="2" mes="08" year="1995"></fechaNac>
-                <altura>
-                    1.78
-                </altura>
-                <ciudad>
-                    Cabra del Campo
-                </ciudad>
-                <foto ruta="../multimedia/xml/jordi-calavera.jpg"></foto>
-            </datosJugador>
-        </jugador>
-        <jugador nombre="Aitor" apellidos="García Flores" edad="28">
-            <datosJugador>
-                <fechaNac dia="25" mes="03" year="1994"></fechaNac>
-                <altura>
-                    1.73
-                </altura>
-                <ciudad>
-                    Gibraleón
-                </ciudad>
-                <foto ruta="../multimedia/xml/aitor-garcia.jpg"></foto>
             </datosJugador>
         </jugador>
         <jugador nombre="Pedro" apellidos="Díaz Fanjul" edad="23">
@@ -192,18 +144,6 @@
                     Gijón
                 </ciudad>
                 <foto ruta="../multimedia/xml/gaspar.jpg"></foto>
-            </datosJugador>
-        </jugador>
-        <jugador nombre="Víctor" apellidos="Campuzano Bonilla" edad="24">
-            <datosJugador>
-                <fechaNac dia="31" mes="05" year="1997"></fechaNac>
-                <altura>
-                    1.74
-                </altura>
-                <ciudad>
-                    Barcelona
-                </ciudad>
-                <foto ruta="../multimedia/xml/campuzano.jpg"></foto>
             </datosJugador>
         </jugador>
     </pais>
