@@ -32,7 +32,7 @@
 
 	
 
-<!ELEMENT jugador (datosJugador, equipo*)>
+<!ELEMENT jugador (datosJugador, equipo?, equipo?)>
 	<!ATTLIST jugador
 			nombre CDATA #REQUIRED
 			apellidos CDATA #REQUIRED
