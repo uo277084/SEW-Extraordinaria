@@ -2,20 +2,49 @@
 body {
     font-family: Arial, sans-serif;
     color: #000;
-    background-color: #ffe3e3;
+    background-color: #ffffff;
+}
+
+main {
+    margin-top: 3em;
+}
+
+/*Especificidad: 001*/
+nav {
+    float: left;
+    background-color: #000000;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
 }
 
 /*Especificidad: 002*/
-header h1 {
-    font-size: 25pt;
-    text-align: center;
-    padding: 0%;
+nav ul {
+    list-style: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 
-/*Especificidad: 002*/
-header h2 {
-    font-size: 13pt;
-    text-align: center;
+/*Especificidad: 003*/
+nav ul li {
+    float: left;
+    font-family: Tahoma, serif;
+    font-size: 16px;
+}
+
+/*Especificidad: 004*/
+nav ul li a {
+    display: block;
+    padding: 20px;
+    color: #fff;
+    text-decoration: none;
+}
+
+/*Especificidad: 014*/
+nav ul li a:hover {
+    background: #ffffff;
+    color: #c61501;
 }
 
 /*Especificidad: 002*/
@@ -28,11 +57,10 @@ footer p {
 h1 {
     color: #fff;
     background-color: #c61501;
-    border-radius: 5ex;
     text-transform: uppercase;
     padding: 1.5em;
     text-align: center;
-    font-family: Chalkduster, fantasy;
+    font-family: Tahoma, serif;
     font-size: 35pt;
     margin-left: 0.7em;
     margin-right: 0.7em;
@@ -42,7 +70,7 @@ h1 {
 h2 {
     color: #c61501;
     text-transform: uppercase;
-    font-family: Chalkduster, fantasy;
+    font-family: Tahoma, serif;
     font-size: 22pt;
     margin-left: 1em;
     margin-right: 1em;
@@ -55,13 +83,7 @@ p {
     margin-left: 1.5em;
     margin-right: 1.5em;
     text-align: justify;
-}
-
-/*Especificidad: 001*/
-a {
-    color: #00006b;
-    font-weight: bold;
-    font-size: 15pt;
+    font-family: Tahoma, serif;
 }
 
 /*Especificidad: 011*/
