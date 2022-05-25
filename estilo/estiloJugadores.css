@@ -1,10 +1,9 @@
-/*Especificidad: 001*/
-h2 {
-    color: #c61501;
+/*Especificidad: 002*/
+p h1 {
+    color: #fff;
     text-transform: uppercase;
     font-family: Tahoma, serif;
-    text-align: center;
-    font-size: 22pt;
+    font-size: 18pt;
     margin-left: 1em;
     margin-right: 1em;
 }
@@ -18,6 +17,16 @@ h3 {
 /*Especificidad: 001*/
 h4 {
     color: #7d0d00;
+    font-family: Tahoma, serif;
+}
+
+/*Especificidad: 001*/
+li {
+    font-size: 14pt;
+}
+
+figure h5 {
+    color: #ce1500;
     font-family: Tahoma, serif;
 }
 
