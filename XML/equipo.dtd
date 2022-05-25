@@ -1,4 +1,4 @@
-<!ELEMENT equipo (datosEquipo, pais+)>
+<!ELEMENT equipo (datosEquipo, pais*)>
 <!ELEMENT datosEquipo (nombre, fechaIni?, fechaFin?, antiguedad, ciudad)>
 <!ELEMENT nombre (#PCDATA)>
 <!ELEMENT fechaIni (#PCDATA)>

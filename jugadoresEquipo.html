@@ -10,6 +10,7 @@
     <meta name="keywords" content="xml, jugadores, equipo" />
     <title>Jugadores de archivo</title>
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/estiloJugadores.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/xmlManager.js"></script>
@@ -38,16 +39,16 @@
     <main>
         <h1>¡Tu equipo en XML!</h1>
         <p>
-            Está disponible la opción de cargar tu equipo a partir de un archivo XML. Deberá subir el archivo desde sus
-            documentos, pulsar el botón "Cargar" y se mostrará el contenido.
+            Está disponible la opción de cargar los datos de tu equipo a partir de un archivo XML. Deberá subir el
+            archivo desde sus documentos, pulsar el botón "Cargar" y se mostrará el contenido.
         </p>
-        <p>
-            <label for="uploadTeamXML">Sube el archivo que desea procesar.</label>
-        </p>
-        <p>
+        <fieldset>
+            <label for="uploadTeamXML">Sube el archivo que desea procesar:</label>
             <input id="uploadTeamXML" type="file" />
+        </fieldset>
+        <p>
+            <input type="button" onclick="xmlManager.uploadTeamXML()" value="Cargar" />
         </p>
-        <input type="button" onclick="xmlManager.uploadTeamXML()" value="Cargar" />
         <p id="teamData"></p>
     </main>
 
