@@ -1,0 +1,35 @@
+/*Especificidad: 001*/
+h2 {
+    color: #c61501;
+    text-transform: uppercase;
+    font-family: Tahoma, serif;
+    text-align: center;
+    font-size: 22pt;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+/*Especificidad: 001*/
+h3 {
+    color: #a51100;
+    font-family: Tahoma, serif;
+}
+
+/*Especificidad: 001*/
+h4 {
+    color: #7d0d00;
+    font-family: Tahoma, serif;
+}
+
+/*Especificidad: 001*/
+fieldset {
+    border-color: #c61501;
+    background-color: #fff;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+}
+
+/*Especificidad: 002*/
+fieldset input {
+    margin-left: 2.5em;
+}
