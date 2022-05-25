@@ -40,6 +40,36 @@
                 </ciudad>
                 <foto ruta="../multimedia/xml/cuellar.jpg"></foto>
             </datosJugador>
+            <equipo>
+                <datosEquipo>
+                    <nombre>
+                        C. D. Leganés
+                    </nombre>
+                    <fechaIni dia="14" mes="07" year="2017"></fechaIni>
+                    <fechaFin dia="29" mes="06" year="2021"></fechaFin>
+                    <antiguedad>
+                        1928
+                    </antiguedad>
+                    <ciudad>
+                        Leganés
+                    </ciudad>
+                </datosEquipo>
+            </equipo>
+            <equipo>
+                <datosEquipo>
+                    <nombre>
+                        Real Sporting de Gijón
+                    </nombre>
+                    <fechaIni dia="27" mes="12" year="2008"></fechaIni>
+                    <fechaFin dia="17" mes="06" year="2017"></fechaFin>
+                    <antiguedad>
+                        1905
+                    </antiguedad>
+                    <ciudad>
+                        Gijón
+                    </ciudad>
+                </datosEquipo>
+            </equipo>
         </jugador>
         <jugador nombre="Diego" apellidos="Mariño Villar" edad="32">
             <datosJugador>
@@ -52,6 +82,36 @@
                 </ciudad>
                 <foto ruta="../multimedia/xml/diego-m.jpg"></foto>
             </datosJugador>
+            <equipo>
+                <datosEquipo>
+                    <nombre>
+                        Levante U. D.
+                    </nombre>
+                    <fechaIni dia="30" mes="12" year="2014"></fechaIni>
+                    <fechaFin dia="04" mes="06" year="2016"></fechaFin>
+                    <antiguedad>
+                        1909
+                    </antiguedad>
+                    <ciudad>
+                        Valencia
+                    </ciudad>
+                </datosEquipo>
+            </equipo>
+            <equipo>
+                <datosEquipo>
+                    <nombre>
+                        Valladolid C. F.
+                    </nombre>
+                    <fechaIni dia="25" mes="06" year="2013"></fechaIni>
+                    <fechaFin dia="11" mes="06" year="2014"></fechaFin>
+                    <antiguedad>
+                        1928
+                    </antiguedad>
+                    <ciudad>
+                        Valladolid
+                    </ciudad>
+                </datosEquipo>
+            </equipo>
         </jugador>
         <jugador nombre="Pedro" apellidos="Díaz Fanjul" edad="23">
             <datosJugador>
@@ -76,6 +136,36 @@
                 </ciudad>
                 <foto ruta="../multimedia/xml/jony.jpg"></foto>
             </datosJugador>
+            <equipo>
+                <datosEquipo>
+                    <nombre>
+                        C. A. Osasuna
+                    </nombre>
+                    <fechaIni dia="22" mes="08" year="2020"></fechaIni>
+                    <fechaFin dia="20" mes="12" year="2021"></fechaFin>
+                    <antiguedad>
+                        1920
+                    </antiguedad>
+                    <ciudad>
+                        Pamplona
+                    </ciudad>
+                </datosEquipo>
+            </equipo>
+            <equipo>
+                <datosEquipo>
+                    <nombre>
+                        S. S. Lazio
+                    </nombre>
+                    <fechaIni dia="18" mes="07" year="2019"></fechaIni>
+                    <fechaFin dia="09" mes="07" year="2020"></fechaFin>
+                    <antiguedad>
+                        1900
+                    </antiguedad>
+                    <ciudad>
+                        Roma
+                    </ciudad>
+                </datosEquipo>
+            </equipo>
         </jugador>
         <jugador nombre="Christian" apellidos="Rivera Hernández" edad="24">
             <datosJugador>
@@ -88,6 +178,36 @@
                 </ciudad>
                 <foto ruta="../multimedia/xml/rivera.jpg"></foto>
             </datosJugador>
+            <equipo>
+                <datosEquipo>
+                    <nombre>
+                        Girona F. C.
+                    </nombre>
+                    <fechaIni dia="29" mes="07" year="2020"></fechaIni>
+                    <fechaFin dia="30" mes="12" year="2021"></fechaFin>
+                    <antiguedad>
+                        1930
+                    </antiguedad>
+                    <ciudad>
+                        Gerona
+                    </ciudad>
+                </datosEquipo>
+            </equipo>
+            <equipo>
+                <datosEquipo>
+                    <nombre>
+                        C. D. Leganés
+                    </nombre>
+                    <fechaIni dia="30" mes="06" year="2019"></fechaIni>
+                    <fechaFin dia="09" mes="07" year="2020"></fechaFin>
+                    <antiguedad>
+                        1928
+                    </antiguedad>
+                    <ciudad>
+                        Leganés
+                    </ciudad>
+                </datosEquipo>
+            </equipo>
         </jugador>
         <jugador nombre="Francisco José" apellidos="Villalba Rodrigo" edad="24">
             <datosJugador>
@@ -100,6 +220,36 @@
                 </ciudad>
                 <foto ruta="../multimedia/xml/villalba.jpg"></foto>
             </datosJugador>
+            <equipo>
+                <datosEquipo>
+                    <nombre>
+                        U. D. Almería
+                    </nombre>
+                    <fechaIni dia="28" mes="07" year="2020"></fechaIni>
+                    <fechaFin dia="02" mes="07" year="2021"></fechaFin>
+                    <antiguedad>
+                        1989
+                    </antiguedad>
+                    <ciudad>
+                        Almería
+                    </ciudad>
+                </datosEquipo>
+            </equipo>
+            <equipo>
+                <datosEquipo>
+                    <nombre>
+                        Birmingham City F. C.
+                    </nombre>
+                    <fechaIni dia="10" mes="06" year="2019"></fechaIni>
+                    <fechaFin dia="04" mes="07" year="2020"></fechaFin>
+                    <antiguedad>
+                        1875
+                    </antiguedad>
+                    <ciudad>
+                        Birmingham
+                    </ciudad>
+                </datosEquipo>
+            </equipo>
         </jugador>
         <jugador nombre="Gaspar" apellidos="Campos-Ansó Fernández" edad="22">
             <datosJugador>
@@ -142,6 +292,36 @@
                 </ciudad>
                 <foto ruta="../multimedia/xml/kravets.jpg"></foto>
             </datosJugador>
+            <equipo>
+                <datosEquipo>
+                    <nombre>
+                        Lech Poznan
+                    </nombre>
+                    <fechaIni dia="29" mes="01" year="2020"></fechaIni>
+                    <fechaFin dia="01" mes="08" year="2021"></fechaFin>
+                    <antiguedad>
+                        1922
+                    </antiguedad>
+                    <ciudad>
+                        Poznan
+                    </ciudad>
+                </datosEquipo>
+            </equipo>
+            <equipo>
+                <datosEquipo>
+                    <nombre>
+                        C. D. Lugo
+                    </nombre>
+                    <fechaIni dia="10" mes="01" year="2019"></fechaIni>
+                    <fechaFin dia="13" mes="01" year="2020"></fechaFin>
+                    <antiguedad>
+                        1953
+                    </antiguedad>
+                    <ciudad>
+                        Lugo
+                    </ciudad>
+                </datosEquipo>
+            </equipo>
         </jugador>
         <jugador nombre="Bogdan" apellidos="Milovanov" edad="24">
             <datosJugador>
@@ -154,6 +334,21 @@
                 </ciudad>
                 <foto ruta="../multimedia/xml/bogdan.jpg"></foto>
             </datosJugador>
+            <equipo>
+                <datosEquipo>
+                    <nombre>
+                        U. D. San Sebastián de los Reyes
+                    </nombre>
+                    <fechaIni dia="19" mes="01" year="2017"></fechaIni>
+                    <fechaFin dia="07" mes="08" year="2018"></fechaFin>
+                    <antiguedad>
+                        1971
+                    </antiguedad>
+                    <ciudad>
+                        San Sebastián de los Reyes
+                    </ciudad>
+                </datosEquipo>
+            </equipo>
         </jugador>
     </pais>
     <pais nombre="Francia">
@@ -184,6 +379,36 @@
                 </ciudad>
                 <foto ruta="../multimedia/xml/babin.jpg"></foto>
             </datosJugador>
+            <equipo>
+                <datosEquipo>
+                    <nombre>
+                        Maccabi Tel Aviv F. C.
+                    </nombre>
+                    <fechaIni dia="09" mes="08" year="2017"></fechaIni>
+                    <fechaFin dia="17" mes="06" year="2018"></fechaFin>
+                    <antiguedad>
+                        1906
+                    </antiguedad>
+                    <ciudad>
+                        Tel Aviv
+                    </ciudad>
+                </datosEquipo>
+            </equipo>
+            <equipo>
+                <datosEquipo>
+                    <nombre>
+                        Real Sporting de Gijón
+                    </nombre>
+                    <fechaIni dia="12" mes="01" year="2016"></fechaIni>
+                    <fechaFin dia="15" mes="07" year="2017"></fechaFin>
+                    <antiguedad>
+                        1905
+                    </antiguedad>
+                    <ciudad>
+                        Gijón
+                    </ciudad>
+                </datosEquipo>
+            </equipo>
         </jugador>
     </pais>
     <pais nombre="Panamá">
@@ -214,6 +439,36 @@
                 </ciudad>
                 <foto ruta="../multimedia/xml/puma.jpg"></foto>
             </datosJugador>
+            <equipo>
+                <datosEquipo>
+                    <nombre>
+                        C. D. Lugo
+                    </nombre>
+                    <fechaIni dia="28" mes="01" year="2020"></fechaIni>
+                    <fechaFin dia="08" mes="07" year="2021"></fechaFin>
+                    <antiguedad>
+                        1953
+                    </antiguedad>
+                    <ciudad>
+                        Lugo
+                    </ciudad>
+                </datosEquipo>
+            </equipo>
+            <equipo>
+                <datosEquipo>
+                    <nombre>
+                        Deportivo Alavés
+                    </nombre>
+                    <fechaIni dia="30" mes="06" year="2019"></fechaIni>
+                    <fechaFin dia="03" mes="01" year="2020"></fechaFin>
+                    <antiguedad>
+                        1921
+                    </antiguedad>
+                    <ciudad>
+                        Vitoria
+                    </ciudad>
+                </datosEquipo>
+            </equipo>
         </jugador>
     </pais>
     <pais nombre="Montenegro">
@@ -244,6 +499,36 @@
                 </ciudad>
                 <foto ruta="../multimedia/xml/uros.jpg"></foto>
             </datosJugador>
+            <equipo>
+                <datosEquipo>
+                    <nombre>
+                        Olympiacos F. C.
+                    </nombre>
+                    <fechaIni dia="29" mes="12" year="2017"></fechaIni>
+                    <fechaFin dia="26" mes="06" year="2018"></fechaFin>
+                    <antiguedad>
+                        1925
+                    </antiguedad>
+                    <ciudad>
+                        El Pireo
+                    </ciudad>
+                </datosEquipo>
+            </equipo>
+            <equipo>
+                <datosEquipo>
+                    <nombre>
+                        F. K. Partizan
+                    </nombre>
+                    <fechaIni dia="09" mes="01" year="2016"></fechaIni>
+                    <fechaFin dia="05" mes="12" year="2017"></fechaFin>
+                    <antiguedad>
+                        1945
+                    </antiguedad>
+                    <ciudad>
+                        Belgrado
+                    </ciudad>
+                </datosEquipo>
+            </equipo>
         </jugador>
     </pais>
 </equipo>
