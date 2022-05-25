@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE sporting SYSTEM "./equipo.dtd">
-<sporting nombre="Real Sporting de Gijón">
+<!DOCTYPE equipo SYSTEM "./equipo.dtd">
+<equipo>
     <datosEquipo>
+        <nombre>
+            Real Sporting de Gijón
+        </nombre>
         <antiguedad>
             1905
         </antiguedad>
@@ -50,18 +53,6 @@
                 <foto ruta="../multimedia/xml/diego-m.jpg"></foto>
             </datosJugador>
         </jugador>
-        <jugador nombre="Borja" apellidos="López Menéndez" edad="28">
-            <datosJugador>
-                <fechaNac dia="2" mes="02" year="1994"></fechaNac>
-                <altura>
-                    1.91
-                </altura>
-                <ciudad>
-                    Gijón
-                </ciudad>
-                <foto ruta="../multimedia/xml/borja-lopez.jpg"></foto>
-            </datosJugador>
-        </jugador>
         <jugador nombre="Pedro" apellidos="Díaz Fanjul" edad="23">
             <datosJugador>
                 <fechaNac dia="5" mes="06" year="1998"></fechaNac>
@@ -84,30 +75,6 @@
                     Cangas del Narcea
                 </ciudad>
                 <foto ruta="../multimedia/xml/jony.jpg"></foto>
-            </datosJugador>
-        </jugador>
-        <jugador nombre="Nacho" apellidos="Méndez-Navia Fernández" edad="24">
-            <datosJugador>
-                <fechaNac dia="30" mes="03" year="1998"></fechaNac>
-                <altura>
-                    1.79
-                </altura>
-                <ciudad>
-                    Luanco
-                </ciudad>
-                <foto ruta="../multimedia/xml/nacho-mendez.jpg"></foto>
-            </datosJugador>
-        </jugador>
-        <jugador nombre="José" apellidos="Gragera Amado" edad="22">
-            <datosJugador>
-                <fechaNac dia="14" mes="05" year="2000"></fechaNac>
-                <altura>
-                    1.86
-                </altura>
-                <ciudad>
-                    Gijón
-                </ciudad>
-                <foto ruta="../multimedia/xml/gragera.jpg"></foto>
             </datosJugador>
         </jugador>
         <jugador nombre="Christian" apellidos="Rivera Hernández" edad="24">
@@ -279,4 +246,4 @@
             </datosJugador>
         </jugador>
     </pais>
-</sporting>
+</equipo>
