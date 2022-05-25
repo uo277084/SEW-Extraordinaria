@@ -5,6 +5,7 @@ body {
     background-color: #ffffff;
 }
 
+/*Especificidad: 001*/
 main {
     margin-top: 3em;
 }
@@ -12,6 +13,7 @@ main {
 /*Especificidad: 001*/
 nav {
     float: left;
+    color: #fff;
     background-color: #000000;
     width: 100%;
     position: fixed;

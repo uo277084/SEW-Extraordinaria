@@ -1,1 +1,63 @@
 <!--En este html se mostrará el contenido del xml-->
+<!DOCTYPE HTML>
+
+<html lang="es">
+
+<head>
+    <!-- Datos que describen el documento -->
+    <meta charset="UTF-8" />
+    <meta name="author" content="Tania Bajo García" />
+    <meta name="description" content="Jugadores de archivo XML" />
+    <meta name="keywords" content="xml, jugadores, equipo" />
+    <title>Jugadores de archivo</title>
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
+    <!--<link rel="stylesheet" type="text/css" href="estilo/estiloJugadoresXML.css" />-->
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <script src="js/xmlManager.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a title="Información del Real Sporting de Gijón" tabindex="1" href="informacion.html"
+                        accesskey="I">Información</a>
+                </li>
+                <li>
+                    <a title="Logros del Real Sporting de Gijón" tabindex="2" href="listaLogros.html"
+                        accesskey="L">Logros</a>
+                </li>
+                <li>
+                    <a title="Quini - Jugador histórico" tabindex="3" href="jugadorHistorico.html"
+                        accesskey="Q">Quini</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>¡Tu equipo en XML!</h1>
+        <p>
+            Está disponible la opción de cargar tu equipo a partir de un archivo XML. Deberá subir el archivo desde sus
+            documentos, pulsar el botón "Cargar" y se mostrará el contenido.
+        </p>
+        <p>
+            <label for="uploadTeamXML">Sube el archivo que desea procesar.</label>
+        </p>
+        <p>
+            <input id="uploadTeamXML" type="file" />
+        </p>
+
+
+
+        <!--Aquí el script(?)-->
+        <input type="button" onclick="xmlManager.uploadTeamXML()" value="Cargar" />
+    </main>
+
+    <footer>
+        <p>Copyright @2022 Tania Bajo García</p>
+    </footer>
+</body>
+
+</html>
