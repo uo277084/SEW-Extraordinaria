@@ -7,6 +7,10 @@ class XMLManager {
     }
 
     uploadTeamXML() {
+        if (!window.FileReader) {
+            alert("El navegador que está usando no soporta API File");
+        }
+
         var reader = new FileReader();
         //El archivo subido
         var file = document.getElementById("uploadTeamXML").files[0];
