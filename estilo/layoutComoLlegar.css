@@ -1,0 +1,16 @@
+/*Especificidad: 001*/
+main {
+    display: grid;
+    grid-template-areas: "sec asi"
+}
+
+/*Especificidad: 001*/
+section {
+    grid-area: sec;
+}
+
+/*Especificidad: 001*/
+aside {
+    grid-area: asi;
+    text-align: center;
+}

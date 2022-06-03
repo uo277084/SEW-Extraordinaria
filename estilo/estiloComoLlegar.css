@@ -1,0 +1,12 @@
+/*Especificidad: 001*/
+img {
+    padding: 1.5em;
+    display: block;
+    margin: auto;
+    width: 80%;
+    height: auto;
+}
+
+figure {
+    font-size: 8pt;
+}

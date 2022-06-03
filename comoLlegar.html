@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+
+<html lang="es">
+
+<head>
+    <!-- Datos que describen el documento -->
+    <meta charset="UTF-8" />
+    <meta name="author" content="Tania Bajo García" />
+    <meta name="description" content="Jugadores de archivo XML" />
+    <meta name="keywords" content="xml, jugadores, equipo" />
+    <title>Equipo</title>
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/estiloComoLlegar.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/layoutComoLlegar.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/geolocalizacion.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a title="Información del Real Sporting de Gijón" tabindex="1" href="informacion.html"
+                        accesskey="I">Información</a>
+                </li>
+                <li>
+                    <a title="Logros del Real Sporting de Gijón" tabindex="2" href="listaLogros.html"
+                        accesskey="L">Logros</a>
+                </li>
+                <li>
+                    <a title="Quini - Jugador histórico" tabindex="3" href="jugadorHistorico.html"
+                        accesskey="Q">Quini</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h1>¿Dónde está El Molinón?</h1>
+            <h2>Dirección:</h2>
+            <p>Calle Luis Adaro Ruíz Falcó, 33203 Gijón, Asturias</p>
+            <h2>¿Quieres visitarlo? ¡Mira a que distancia estás de él!</h2>
+            <p>
+                <input type="button" value="¡Sí!" onclick="geolocalization.calculateDistance()" />
+            </p>
+            <p id="ubicacion"></p>
+        </section>
+        <aside>
+            <img src="multimedia/ecmascript/loc_molinon.jpg" alt="Ubicación El Molinón" />
+        </aside>
+    </main>
+
+    <footer>
+        <p>Copyright @2022 Tania Bajo García</p>
+    </footer>
+</body>
+
+</html>
