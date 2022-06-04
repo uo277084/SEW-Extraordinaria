@@ -1,13 +1,3 @@
-/*Especificidad: 002*/
-p h1 {
-    color: #fff;
-    text-transform: uppercase;
-    font-family: Tahoma, serif;
-    font-size: 18pt;
-    margin-left: 1em;
-    margin-right: 1em;
-}
-
 /*Especificidad: 001*/
 h3 {
     color: #a51100;
