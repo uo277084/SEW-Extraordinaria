@@ -43,10 +43,10 @@ class Geolocalization {
         var datosToShow = "";
         if (typeof datos[1] === 'undefined') {
             //Si no se ha cargado bien, mostramos un mensaje
-            datosToShow = "<figure>* No se ha cargado correctamente la distancia, por favor vuelva a pulsar el botón.</figure>"
+            datosToShow = "<figure>* Por favor vuelva a pulsar el botón.</figure>"
         } else {
             //Si se ha cargado bien, mostramos los datos
-            datosToShow = "<p>Estas a una distancia de " + datos[0] + "," + datos[1] + " km del Molinón</p>"
+            datosToShow = "<p>Estas a una distancia de " + datos[0] + "," + datos[1] + " km de El Molinón</p>"
         }
         dataArea.innerHTML = datosToShow;
     }

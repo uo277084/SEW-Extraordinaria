@@ -1,5 +1,5 @@
-/*Especificidad: 001*/
-img {
+/*Especificidad: 002*/
+aside img {
     padding: 1.5em;
     display: block;
     margin: auto;
@@ -7,6 +7,7 @@ img {
     height: auto;
 }
 
+/*Especificidad: 001*/
 figure {
     font-size: 8pt;
 }
