@@ -97,3 +97,9 @@ a:hover {
 a:active {
     color: #5C0000;
 }
+
+/*Especificidad: 002*/
+a img {
+    width: 0.9rem;
+    height: auto;
+}

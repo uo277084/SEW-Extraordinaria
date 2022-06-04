@@ -8,7 +8,7 @@
     <meta name="author" content="Tania Bajo García" />
     <meta name="description" content="Jugadores de archivo XML" />
     <meta name="keywords" content="xml, jugadores, equipo" />
-    <title>Jugadores de archivo</title>
+    <title>Equipo</title>
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/estiloJugadores.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
@@ -21,6 +21,11 @@
         <nav>
             <ul>
                 <li>
+                    <a href="informacion.html">
+                        <img src="multimedia/html/escudo.png" alt="Escudo del Real Sporting de Gijón">
+                    </a>
+                </li>
+                <li>
                     <a title="Información del Real Sporting de Gijón" tabindex="1" href="informacion.html"
                         accesskey="I">Información</a>
                 </li>
@@ -31,6 +36,10 @@
                 <li>
                     <a title="Quini - Jugador histórico" tabindex="3" href="jugadorHistorico.html"
                         accesskey="Q">Quini</a>
+                </li>
+                <li>
+                    <a title="Como llegar a El Molinón" tabindex="4" href="comoLlegar.html" accesskey="C">Como
+                        llegar</a>
                 </li>
             </ul>
         </nav>
@@ -49,11 +58,13 @@
         <p>
             <input type="button" onclick="xmlManager.uploadTeamXML()" value="Cargar" />
         </p>
-        <p id="teamData"></p>
+        <p id="teamData">
+
+        </p>
     </main>
 
     <footer>
-        <p>Copyright @2022 Tania Bajo García</p>
+        <p>Página Real Sporting de Gijón | Web | Copyright @2022 Tania Bajo García</p>
     </footer>
 </body>
 
