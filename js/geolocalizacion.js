@@ -10,6 +10,7 @@ class Geolocalization {
         this.longitud = posicion.coords.longitude;
         this.latitud = posicion.coords.latitude;
     }
+
     calculateDistance() {
         if (!navigator.geolocation) {
             alert("El navegador que estás usando no soporta API Geolocalización");
@@ -33,12 +34,21 @@ class Geolocalization {
         var a = Math.sin(difLat / 2) * Math.sin(difLat / 2) + Math.cos(radLat) * Math.cos(radLatMolinon) * Math.sin(difLong / 2) * Math.sin(difLong / 2);
         var b = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         var c = radHearth * b;
-        var d = c.toFixed(3);
+        var d = c.toFixed(2);
 
         //Para poner los datos con comas
         var datos = d.split(".");
-        dataArea.innerHTML = "<p>Estas a una distancia de " + datos[0] + "," + datos[1] + " km del Molinón</p>" +
-            "<figure>* Si no se carga correctamente la distancia, recargue la página y vuélvalo a intentar.</figure>";
+
+        //Especificar los datos que se van a mostrar
+        var datosToShow = "";
+        if (typeof datos[1] === 'undefined') {
+            //Si no se ha cargado bien, mostramos un mensaje
+            datosToShow = "<figure>* No se ha cargado correctamente la distancia, por favor vuelva a pulsar el botón.</figure>"
+        } else {
+            //Si se ha cargado bien, mostramos los datos
+            datosToShow = "<p>Estas a una distancia de " + datos[0] + "," + datos[1] + " km del Molinón</p>"
+        }
+        dataArea.innerHTML = datosToShow;
     }
 }
 var geolocalization = new Geolocalization();
