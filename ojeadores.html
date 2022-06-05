@@ -44,6 +44,10 @@
                     <a title="Como llegar a El Molinón" tabindex="5" href="comoLlegar.html" accesskey="C">Como
                         llegar</a>
                 </li>
+                <li>
+                    <a title="Plantilla 21/22" tabindex="6" href="plantillaTemporada.html" accesskey="P">Plantilla
+                        21/22</a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -51,20 +55,12 @@
     <main>
         <h1>Ojeadores de jugadores</h1>
         <section>
-            <h2>Tus ojeadores en JSON</h2>
+            <h2>Buscador de ojeadores</h2>
+            <p>Introduce el nombre del ojeador que deseas buscar, pulsa el botón "Buscar" y podrás consultar su
+                información.</p>
             <p>
-                ¿Quieres ver tus ojeadores? Adjunta tu archivo JSON con la información de tus ojeadores, pulsa al botón
-                "Ver ojeadores" y podrás ver toda su información.
-            </p>
-            <fieldset>
-                <label for="uploadScoutsJSON">Sube el archivo que desea procesar:</label>
-                <input id="uploadScoutsJSON" type="file" />
-            </fieldset>
-            <p>
-                <input type="button" onclick="jsonManager.uploadScoutsJSON()" value="Ver ojeadores" />
-            </p>
-            <p id="scoutsData">
-
+                <input type="text" placeholder="Nombre">
+                <button>Buscar</button>
             </p>
         </section>
     </main>
