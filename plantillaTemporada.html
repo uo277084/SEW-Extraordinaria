@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+
+<html lang="es">
+
+<head>
+    <!-- Datos que describen el documento -->
+    <meta charset="UTF-8" />
+    <meta name="author" content="Tania Bajo García" />
+    <meta name="description" content="Jugadores de archivo XML" />
+    <meta name="keywords" content="xml, jugadores, equipo" />
+    <title>Equipo</title>
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/estiloJugadores.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/jsonApiManager.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="informacion.html">
+                        <img src="multimedia/html/escudo.png" alt="Escudo del Real Sporting de Gijón">
+                    </a>
+                </li>
+                <li>
+                    <a title="Información del Real Sporting de Gijón" tabindex="1" href="informacion.html"
+                        accesskey="I">Información</a>
+                </li>
+                <li>
+                    <a title="Logros del Real Sporting de Gijón" tabindex="2" href="listaLogros.html"
+                        accesskey="L">Logros</a>
+                </li>
+                <li>
+                    <a title="Quini - Jugador histórico" tabindex="3" href="jugadorHistorico.html"
+                        accesskey="Q">Quini</a>
+                </li>
+                <li>
+                    <a title="Equipo" tabindex="4" href="jugadoresEquipo.html" accesskey="E">Equipo</a>
+                </li>
+                <li>
+                    <a title="Como llegar a El Molinón" tabindex="5" href="comoLlegar.html" accesskey="C">Como
+                        llegar</a>
+                </li>
+                <li>
+                    <a title="Ojeadores" tabindex="6" href="ojeadores.html" accesskey="O">Ojeadores</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Plantilla de la temporada 21/22</h1>
+        <h2>Plantilla del primer equipo</h2>
+        <section>
+            <p>
+                Estos son los jugadores que componen la plantilla del Real Sporting de Gijón para la temporada 21/22 de
+                la Segunda División de España. Estos datos han sido obtenidos de nuestro proovedor API-Football.
+            </p>
+            <p>
+                <input type="button" onclick="jsonManager.loadInfoPlayersJSON()" value="Cargar" />
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Página Real Sporting de Gijón | Web | Copyright @2022 Tania Bajo García</p>
+    </footer>
+</body>
+
+</html>
