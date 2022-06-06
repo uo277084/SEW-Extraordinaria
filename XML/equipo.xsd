@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<xs:schema xmlns="http://tempuri.org/equipo" elementFormDefault="qualified" targetNamespace="http://tempuri.org/equipo" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="equipo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="datosEquipo" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="pais" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="datosEquipo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="nombre" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="fechaIni" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="fechaFin" />
+        <xs:element ref="antiguedad" />
+        <xs:element ref="ciudad" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nombre" type="xs:string" />
+  <xs:element name="fechaIni">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="dia" type="xs:string" use="required" />
+          <xs:attribute name="mes" type="xs:string" use="required" />
+          <xs:attribute name="year" type="xs:string" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fechaFin">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="dia" type="xs:string" use="required" />
+          <xs:attribute name="mes" type="xs:string" use="required" />
+          <xs:attribute name="year" type="xs:string" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="antiguedad" type="xs:string" />
+  <xs:element name="ciudad" type="xs:string" />
+  <xs:element name="pais">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="datosPais" />
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="jugador" />
+      </xs:sequence>
+      <xs:attribute name="nombre" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="datosPais">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="coord" />
+        <xs:element ref="poblacion" />
+        <xs:element ref="continente" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="coord">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="longitud" />
+        <xs:element ref="latitud" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="longitud" type="xs:string" />
+  <xs:element name="latitud" type="xs:string" />
+  <xs:element name="poblacion" type="xs:string" />
+  <xs:element name="continente" type="xs:string" />
+  <xs:element name="jugador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="datosJugador" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="equipo" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="equipo" />
+      </xs:sequence>
+      <xs:attribute name="nombre" type="xs:string" use="required" />
+      <xs:attribute name="apellidos" type="xs:string" use="required" />
+      <xs:attribute name="edad" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="datosJugador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="fechaNac" />
+        <xs:element ref="altura" />
+        <xs:element ref="ciudad" />
+        <xs:element ref="foto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fechaNac">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="dia" type="xs:string" use="required" />
+          <xs:attribute name="mes" type="xs:string" use="required" />
+          <xs:attribute name="year" type="xs:string" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="altura" type="xs:string" />
+  <xs:element name="foto">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="ruta" type="xs:string" use="required" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
