@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE equipo SYSTEM "./equipo.dtd">
-<equipo>
+<equipo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:noNamespaceSchemaLocation="equipo.xsd">
     <datosEquipo>
         <nombre>
             Real Sporting de Gijón
@@ -45,8 +45,10 @@
                     <nombre>
                         C. D. Leganés
                     </nombre>
+                    <fechas>
                     <fechaIni dia="14" mes="07" year="2017"></fechaIni>
                     <fechaFin dia="29" mes="06" year="2021"></fechaFin>
+                    </fechas>
                     <antiguedad>
                         1928
                     </antiguedad>
@@ -60,8 +62,10 @@
                     <nombre>
                         Real Sporting de Gijón
                     </nombre>
+                    <fechas>
                     <fechaIni dia="27" mes="12" year="2008"></fechaIni>
                     <fechaFin dia="17" mes="06" year="2017"></fechaFin>
+                    </fechas>
                     <antiguedad>
                         1905
                     </antiguedad>
@@ -87,8 +91,10 @@
                     <nombre>
                         Levante U. D.
                     </nombre>
+                    <fechas>
                     <fechaIni dia="30" mes="12" year="2014"></fechaIni>
                     <fechaFin dia="04" mes="06" year="2016"></fechaFin>
+                    </fechas>
                     <antiguedad>
                         1909
                     </antiguedad>
@@ -102,8 +108,10 @@
                     <nombre>
                         Valladolid C. F.
                     </nombre>
+                    <fechas>
                     <fechaIni dia="25" mes="06" year="2013"></fechaIni>
                     <fechaFin dia="11" mes="06" year="2014"></fechaFin>
+                    </fechas>
                     <antiguedad>
                         1928
                     </antiguedad>
@@ -141,8 +149,10 @@
                     <nombre>
                         C. A. Osasuna
                     </nombre>
+                    <fechas>
                     <fechaIni dia="22" mes="08" year="2020"></fechaIni>
                     <fechaFin dia="20" mes="12" year="2021"></fechaFin>
+                    </fechas>
                     <antiguedad>
                         1920
                     </antiguedad>
@@ -156,8 +166,10 @@
                     <nombre>
                         S. S. Lazio
                     </nombre>
+                    <fechas>
                     <fechaIni dia="18" mes="07" year="2019"></fechaIni>
                     <fechaFin dia="09" mes="07" year="2020"></fechaFin>
+                    </fechas>
                     <antiguedad>
                         1900
                     </antiguedad>
@@ -183,8 +195,10 @@
                     <nombre>
                         Girona F. C.
                     </nombre>
+                    <fechas>
                     <fechaIni dia="29" mes="07" year="2020"></fechaIni>
                     <fechaFin dia="30" mes="12" year="2021"></fechaFin>
+                    </fechas>
                     <antiguedad>
                         1930
                     </antiguedad>
@@ -198,8 +212,10 @@
                     <nombre>
                         C. D. Leganés
                     </nombre>
+                    <fechas>
                     <fechaIni dia="30" mes="06" year="2019"></fechaIni>
                     <fechaFin dia="09" mes="07" year="2020"></fechaFin>
+                    </fechas>
                     <antiguedad>
                         1928
                     </antiguedad>
@@ -225,8 +241,10 @@
                     <nombre>
                         U. D. Almería
                     </nombre>
+                    <fechas>
                     <fechaIni dia="28" mes="07" year="2020"></fechaIni>
                     <fechaFin dia="02" mes="07" year="2021"></fechaFin>
+                    </fechas>
                     <antiguedad>
                         1989
                     </antiguedad>
@@ -240,8 +258,10 @@
                     <nombre>
                         Birmingham City F. C.
                     </nombre>
+                    <fechas>
                     <fechaIni dia="10" mes="06" year="2019"></fechaIni>
                     <fechaFin dia="04" mes="07" year="2020"></fechaFin>
+                    </fechas>
                     <antiguedad>
                         1875
                     </antiguedad>
@@ -297,8 +317,10 @@
                     <nombre>
                         Lech Poznan
                     </nombre>
+                    <fechas>
                     <fechaIni dia="29" mes="01" year="2020"></fechaIni>
                     <fechaFin dia="01" mes="08" year="2021"></fechaFin>
+                    </fechas>
                     <antiguedad>
                         1922
                     </antiguedad>
@@ -312,8 +334,10 @@
                     <nombre>
                         C. D. Lugo
                     </nombre>
+                    <fechas>
                     <fechaIni dia="10" mes="01" year="2019"></fechaIni>
                     <fechaFin dia="13" mes="01" year="2020"></fechaFin>
+                    </fechas>
                     <antiguedad>
                         1953
                     </antiguedad>
@@ -339,8 +363,10 @@
                     <nombre>
                         U. D. San Sebastián de los Reyes
                     </nombre>
+                    <fechas>
                     <fechaIni dia="19" mes="01" year="2017"></fechaIni>
                     <fechaFin dia="07" mes="08" year="2018"></fechaFin>
+                    </fechas>
                     <antiguedad>
                         1971
                     </antiguedad>
@@ -384,8 +410,10 @@
                     <nombre>
                         Maccabi Tel Aviv F. C.
                     </nombre>
+                    <fechas>
                     <fechaIni dia="09" mes="08" year="2017"></fechaIni>
                     <fechaFin dia="17" mes="06" year="2018"></fechaFin>
+                    </fechas>
                     <antiguedad>
                         1906
                     </antiguedad>
@@ -399,8 +427,10 @@
                     <nombre>
                         Real Sporting de Gijón
                     </nombre>
+                    <fechas>
                     <fechaIni dia="12" mes="01" year="2016"></fechaIni>
                     <fechaFin dia="15" mes="07" year="2017"></fechaFin>
+                    </fechas>
                     <antiguedad>
                         1905
                     </antiguedad>
@@ -444,8 +474,10 @@
                     <nombre>
                         C. D. Lugo
                     </nombre>
+                    <fechas>
                     <fechaIni dia="28" mes="01" year="2020"></fechaIni>
                     <fechaFin dia="08" mes="07" year="2021"></fechaFin>
+                    </fechas>
                     <antiguedad>
                         1953
                     </antiguedad>
@@ -459,8 +491,10 @@
                     <nombre>
                         Deportivo Alavés
                     </nombre>
+                    <fechas>
                     <fechaIni dia="30" mes="06" year="2019"></fechaIni>
                     <fechaFin dia="03" mes="01" year="2020"></fechaFin>
+                    </fechas>
                     <antiguedad>
                         1921
                     </antiguedad>
@@ -504,8 +538,10 @@
                     <nombre>
                         Olympiacos F. C.
                     </nombre>
+                    <fechas>
                     <fechaIni dia="29" mes="12" year="2017"></fechaIni>
                     <fechaFin dia="26" mes="06" year="2018"></fechaFin>
+                    </fechas>
                     <antiguedad>
                         1925
                     </antiguedad>
@@ -519,8 +555,10 @@
                     <nombre>
                         F. K. Partizan
                     </nombre>
+                    <fechas>
                     <fechaIni dia="09" mes="01" year="2016"></fechaIni>
                     <fechaFin dia="05" mes="12" year="2017"></fechaFin>
+                    </fechas>
                     <antiguedad>
                         1945
                     </antiguedad>

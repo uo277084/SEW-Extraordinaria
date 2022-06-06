@@ -1,6 +1,7 @@
 <!ELEMENT equipo (datosEquipo, pais*)>
-<!ELEMENT datosEquipo (nombre, fechaIni?, fechaFin?, antiguedad, ciudad)>
+<!ELEMENT datosEquipo (nombre, fechas?, antiguedad, ciudad)>
 <!ELEMENT nombre (#PCDATA)>
+<!ELEMENT fechas (fechaIni, fechaFin)>
 <!ELEMENT fechaIni (#PCDATA)>
 <!ATTLIST fechaIni
 	dia CDATA #REQUIRED
@@ -23,7 +24,7 @@
 <!ELEMENT latitud (#PCDATA)>
 <!ELEMENT poblacion (#PCDATA)>
 <!ELEMENT continente (#PCDATA)>
-<!ELEMENT jugador (datosJugador, equipo?, equipo?)>
+<!ELEMENT jugador (datosJugador, equipo*)>
 <!ATTLIST jugador
 	nombre CDATA #REQUIRED
 	apellidos CDATA #REQUIRED

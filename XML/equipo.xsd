@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="Windows-1252"?>
-<xs:schema xmlns="http://tempuri.org/equipo" elementFormDefault="qualified" targetNamespace="http://tempuri.org/equipo" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="equipo">
     <xs:complexType>
       <xs:sequence>
@@ -12,21 +12,28 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element ref="nombre" />
-        <xs:element minOccurs="0" maxOccurs="1" ref="fechaIni" />
-        <xs:element minOccurs="0" maxOccurs="1" ref="fechaFin" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="fechas" />
         <xs:element ref="antiguedad" />
         <xs:element ref="ciudad" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="nombre" type="xs:string" />
+  <xs:element name="fechas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="fechaIni" />
+        <xs:element ref="fechaFin" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="fechaIni">
     <xs:complexType>
       <xs:simpleContent>
         <xs:extension base="xs:string">
-          <xs:attribute name="dia" type="xs:string" use="required" />
-          <xs:attribute name="mes" type="xs:string" use="required" />
-          <xs:attribute name="year" type="xs:string" use="required" />
+          <xs:attribute name="dia" type="xs:integer" use="required" />
+          <xs:attribute name="mes" type="xs:integer" use="required" />
+          <xs:attribute name="year" type="xs:integer" use="required" />
         </xs:extension>
       </xs:simpleContent>
     </xs:complexType>
@@ -35,14 +42,14 @@
     <xs:complexType>
       <xs:simpleContent>
         <xs:extension base="xs:string">
-          <xs:attribute name="dia" type="xs:string" use="required" />
-          <xs:attribute name="mes" type="xs:string" use="required" />
-          <xs:attribute name="year" type="xs:string" use="required" />
+          <xs:attribute name="dia" type="xs:integer" use="required" />
+          <xs:attribute name="mes" type="xs:integer" use="required" />
+          <xs:attribute name="year" type="xs:integer" use="required" />
         </xs:extension>
       </xs:simpleContent>
     </xs:complexType>
   </xs:element>
-  <xs:element name="antiguedad" type="xs:string" />
+  <xs:element name="antiguedad" type="xs:integer" />
   <xs:element name="ciudad" type="xs:string" />
   <xs:element name="pais">
     <xs:complexType>
@@ -70,20 +77,31 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="longitud" type="xs:string" />
-  <xs:element name="latitud" type="xs:string" />
+  <xs:element name="longitud">
+    <xs:simpleType>
+      <xs:restriction base="xs:float">
+      <xs:pattern value = "-?[0-9]*.[0-9]+"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="latitud">
+    <xs:simpleType>
+      <xs:restriction base="xs:float">
+      <xs:pattern value = "-?[0-9]*.[0-9]+"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
   <xs:element name="poblacion" type="xs:string" />
   <xs:element name="continente" type="xs:string" />
   <xs:element name="jugador">
     <xs:complexType>
       <xs:sequence>
         <xs:element ref="datosJugador" />
-        <xs:element minOccurs="0" maxOccurs="1" ref="equipo" />
-        <xs:element minOccurs="0" maxOccurs="1" ref="equipo" />
+        <xs:element minOccurs="0" maxOccurs="2" ref="equipo" />
       </xs:sequence>
       <xs:attribute name="nombre" type="xs:string" use="required" />
       <xs:attribute name="apellidos" type="xs:string" use="required" />
-      <xs:attribute name="edad" type="xs:string" use="required" />
+      <xs:attribute name="edad" type="xs:integer" use="required" />
     </xs:complexType>
   </xs:element>
   <xs:element name="datosJugador">
@@ -100,14 +118,20 @@
     <xs:complexType>
       <xs:simpleContent>
         <xs:extension base="xs:string">
-          <xs:attribute name="dia" type="xs:string" use="required" />
-          <xs:attribute name="mes" type="xs:string" use="required" />
-          <xs:attribute name="year" type="xs:string" use="required" />
+          <xs:attribute name="dia" type="xs:integer" use="required" />
+          <xs:attribute name="mes" type="xs:integer" use="required" />
+          <xs:attribute name="year" type="xs:integer" use="required" />
         </xs:extension>
       </xs:simpleContent>
     </xs:complexType>
   </xs:element>
-  <xs:element name="altura" type="xs:string" />
+  <xs:element name="altura">
+    <xs:simpleType>
+      <xs:restriction base="xs:float" >
+        <xs:pattern value = "[0-9].[0-9]+"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
   <xs:element name="foto">
     <xs:complexType>
       <xs:simpleContent>
