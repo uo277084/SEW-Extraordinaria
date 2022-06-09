@@ -16,6 +16,17 @@ class OjeadoresDB {
         $this->html = "";
         $this->createDB();
         $this->createTables();
+        $this->loadData();
+        $this->debug_to_console("OjeadoresDB constructor");
+    }
+
+    //TODO quitarla
+    function debug_to_console($data) {
+        $output = $data;
+        if (is_array($output))
+            $output = implode(',', $output);
+    
+        echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
     }
 
     /**
@@ -87,6 +98,77 @@ class OjeadoresDB {
                             CONSTRAINT FK_Ojeador FOREIGN KEY (id_ojeador) REFERENCES Ojeador(id),
                             CONSTRAINT FK_Jugador FOREIGN KEY (id_jugador) REFERENCES Jugador(id)
         );");
+    }
+
+    /**
+     * Función que carga los datos del archivo csv en la base de datos
+     */
+    public function loadData(){
+        $file = fopen("dataBase.csv", "r");
+        while(($line = fgetcsv($file)) !== false){
+            $this->debug_to_console($line);
+            if($line[0] == "O"){
+                $this->insertOjeador($line[1], $line[2], $line[3], $line[4], $line[5]);
+            }
+            else if($line[0] == "E"){
+                $this->insertEquipo($line[1], $line[2], $line[3], $line[4], $line[5], $line[6]);
+            }
+            else if($line[0] == "J"){
+                $this->insertJugador($line[1], $line[2], $line[3], $line[4], $line[5], $line[6], $line[7], $line[8], $line[9]);
+            }
+            else if($line[0] == "A"){
+                $this->insertOjea($line[1], $line[2], $line[3], $line[4]);
+            }
+        }
+        fclose($file);
+    }
+
+    /**
+     * Función que inserta un ojeador en la base de datos
+     */
+    public function insertOjeador($nombre, $apellidos, $edad, $ciudad_nacimiento, $id){
+        $this->db = new mysqli($this->localhost, $this->username, $this->password, $this->dbname);
+        $query = "INSERT INTO Ojeador(nombre, apellidos, edad, ciudad_nacimiento, id) VALUES (?,?,?,?,?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ssiss", $nombre, $apellidos, $edad, $ciudad_nacimiento, $id);
+        $stmt->execute();
+        $stmt->close();
+    }
+
+    /**
+     * Función que inserta un equipo en la base de datos
+     */ 
+    public function insertEquipo($nombre, $ciudad, $estadio, $liga, $posicion_liga, $id){
+        $this->db = new mysqli($this->localhost, $this->username, $this->password, $this->dbname);
+        $query = "INSERT INTO Equipo(nombre, ciudad, estadio, liga, posicion_liga, id) VALUES (?,?,?,?,?,?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ssssis", $nombre, $ciudad, $estadio, $liga, $posicion_liga, $id);
+        $stmt->execute();
+        $stmt->close();
+    }
+
+    /**
+     * Función que inserta un jugador en la base de datos
+     */
+    public function insertJugador($nombre, $apellidos, $edad, $internacional, $posicion, $pais, $goles, $id_equipo, $id){
+        $this->db = new mysqli($this->localhost, $this->username, $this->password, $this->dbname);
+        $query = "INSERT INTO Jugador(nombre, apellidos, edad, internacional, posicion, pais, goles, id_equipo, id) VALUES (?,?,?,?,?,?,?,?,?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ssiississ", $nombre, $apellidos, $edad, $internacional, $posicion, $pais, $goles, $id_equipo, $id);
+        $stmt->execute();
+        $stmt->close();
+    }
+
+    /**
+     * Función que inserta una relación ojea en la base de datos
+     */
+    public function insertOjea($negociacion, $tiempo_meses, $id_ojeador, $id_jugador){
+        $this->db = new mysqli($this->localhost, $this->username, $this->password, $this->dbname);
+        $query = "INSERT INTO Ojea(negociacion, tiempo_meses, id_ojeador, id_jugador) VALUES (?,?,?,?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("iiss", $negociacion, $tiempo_meses, $id_ojeador, $id_jugador);
+        $stmt->execute();
+        $stmt->close();
     }
 
     public function getHTML() {
@@ -163,6 +245,7 @@ class OjeadoresDB {
                                         <p><b>Posición:</b> ".$row2['posicion']."</p>
                                         <p><b>País:</b> ".$row2['pais']."</p>
                                         <p><b>Goles:</b> ".$row2['goles']."</p>
+                                        <p><b>Equipo:</b> ".$row['nombre']."</p>
                                     </p>";
                 }
                 
@@ -550,7 +633,7 @@ if (count($_POST) > 0){
         $_SESSION['db']->golesEquipo($_POST['equipos']);
     }
     if(isset($_POST['jugadorInterMedio'])){
-        //quiere num de equipos de una liga
+        //quiere jugadores internacionales ojeados por más de 6 meses
         $_SESSION['db']->jugadorInter();
     }
 }
