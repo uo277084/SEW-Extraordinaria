@@ -93,6 +93,9 @@ class OjeadoresDB {
         return $this->html;
     }
 
+    /**
+     * Función que recoge los nombres y apellidos de todos los ojeadores
+     */
     public function getOjeadores() {
         $this->db = new mysqli($this->localhost, $this->username, $this->password, $this->dbname);
         $query = "SELECT * FROM Ojeador";
@@ -105,19 +108,18 @@ class OjeadoresDB {
             $list .= "<p>Los ojeadores que actualmente trabajan para el Real Sporting de Gijón son:</p>";
             $list .= "<table>";
             $list .= "<caption>Ojeadores</caption>";
-            $list .= "<tr><th>Nombre</th><th>Apellidos</th><th>Edad</th><th>Ciudad</th><th>Id</th></tr>";
+            $list .= "<tr><th>Nombre</th><th>Apellidos</th></tr>";
             while($row = $result->fetch_assoc()) {
                 $list .= "<tr>";
                 $list .= "<td>".$row["nombre"]." "."</td>";
                 $list .= "<td>".$row["apellidos"]."</td>";
-                $list .= "<td>".$row["edad"]."</td>";
-                $list .= "<td>".$row["ciudad_nacimiento"]."</td>";
                 $list .= "</tr>";
             }
             $list .= "</table>";
         }else{
             $list .= "<p>No hay Ojeadores</p>";
         }
+        $stmt->close();
         return $list;
     }
 
@@ -132,8 +134,8 @@ class OjeadoresDB {
     }
 
     public function searchJugador($text){
-        $textQuery = "%"+$text+"%";
-        $this->html = "";
+        $textQuery = "%".$text."%";
+        $this->html = "<h2>Resultado de la búsqueda</h2>";
         $this->db = new mysqli($this->localhost, $this->username, $this->password, $this->dbname);
         $query = "SELECT * FROM Jugador WHERE nombre LIKE ? OR apellidos LIKE ?";
         $stmt = $this->db->prepare($query);
@@ -141,38 +143,79 @@ class OjeadoresDB {
         $stmt->execute();
         $result = $stmt->get_result();
 
-        while($row = $result->fetch_array()) {
-            $query2 = "SELECT * FROM Equipo WHERE id = ?";
-            $stmt2 = $this->db->prepare($query2);
-            $stmt2->bind_param("s", $row['id_equipo']);
-            $stmt2->execute();
-            $result2 = $stmt2->get_result();
+        if($result->num_rows >0){
+            while($row = $result->fetch_array()) {
+                $query2 = "SELECT * FROM Equipo WHERE id = ?";
+                $stmt2 = $this->db->prepare($query2);
+                $stmt2->bind_param("s", $row['id_equipo']);
+                $stmt2->execute();
+                $result2 = $stmt2->get_result();
 
-            $this->html .= "<p>
-                                <h3>".$row['nombre']." ".$row['apellidos']."</h3>
-                                <p><b>Edad:</b> ".$row['edad']."</p>
-                                <p><b>Internacional:</b> ".($row['internacional'] ? "Si" : "No")."</p>
-                                <p><b>Posición:</b> ".$row['posicion']."</p>
-                                <p><b>País:</b> ".$row['pais']."</p>
-                                <p><b>Goles:</b> ".$row['goles']."</p>
-                                <p><b>Equipo:</b> ".$result2->fetch_array()['nombre']."</p>
-                            </p>";
+                $this->html .= "<p>
+                                    <h3>".$row['nombre']." ".$row['apellidos']."</h3>
+                                    <p><b>Edad:</b> ".$row['edad']."</p>
+                                    <p><b>Internacional:</b> ".($row['internacional'] ? "Si" : "No")."</p>
+                                    <p><b>Posición:</b> ".$row['posicion']."</p>
+                                    <p><b>País:</b> ".$row['pais']."</p>
+                                    <p><b>Goles:</b> ".$row['goles']."</p>
+                                    <p><b>Equipo:</b> ".$result2->fetch_array()['nombre']."</p>
+                                </p>";
+                
+                $stmt2->close();
+            }
+        }else{
+            $this->html .= "<p>No hay resultados para tu búsqueda</p>";
         }
+        $stmt->close();
     }
 
     public function searchOjeadorHTML() {
         $this->html = 
             "<h2>Área de búsqueda</h2>
             <form action='#' method='post'>
-                <label for='nso'>Inserte nombre o apellido del ojeador que desea buscar</label>
+                <label for='nso'>Inserte nombre o apellido del ojeador que desea buscar (la primera letra del nombre y de los apellidos debe ir en mayúsculas)</label>
                 <input id='nso' type='text' name='nameSurnameO' placeholder='Nombre o apellido' />
                 <input type='submit' name='ojNaSu' value='Buscar' />
             </form>";
     }
 
     public function searchOjeador($text){
-        $textQuery = "%"+$text+"%";
-        $this->html = "";
+        $textQuery = "%".$text."%";
+        $this->html = "<h2>Resultado de la búsqueda</h2>";
+        $this->db = new mysqli($this->localhost, $this->username, $this->password, $this->dbname);
+        $query = "SELECT * FROM Ojeador WHERE nombre LIKE ? OR apellidos LIKE ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ss", $textQuery, $textQuery);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        if($result->num_rows >0){
+            while($row = $result->fetch_array()) {
+                $this->html .= "<p>
+                                    <h3>".$row['nombre']." ".$row['apellidos']."</h3>
+                                    <p><b>Edad:</b> ".$row['edad']."</p>
+                                    <p><b>Ciudad de nacimiento:</b> ".$row['ciudad_nacimiento']."</p>
+                                </p>";
+            }
+        }else{
+            $this->html .= "<p>No hay resultados para tu búsqueda</p>";
+        }
+        $stmt->close();
+    }
+
+    public function negoOjeadorHTML() {
+        $this->html = 
+            "<h2>Área de búsqueda</h2>
+            <form action='#' method='post'>
+                <label for='nson'>Inserte nombre o apellido del ojeador que desea buscar (la primera letra del nombre y de los apellidos debe ir en mayúsculas)</label>
+                <input id='nson' type='text' name='jugadorNegoOjeadorNombre' placeholder='Nombre o apellido' />
+                <input type='submit' name='juNeOjNo' value='Buscar' />
+            </form>";
+    }
+
+    public function negoOjeador($text){
+        $textQuery = "%".$text."%";
+        $this->html = "<h2>Resultado de la búsqueda</h2>";
         $this->db = new mysqli($this->localhost, $this->username, $this->password, $this->dbname);
         $query = "SELECT * FROM Ojeador WHERE nombre LIKE ? OR apellidos LIKE ?";
         $stmt = $this->db->prepare($query);
@@ -180,13 +223,176 @@ class OjeadoresDB {
         $stmt->execute();
         $result = $stmt->get_result();
 
-        while($row = $result->fetch_array()) {
-            $this->html .= "<p>
-                                <h3>".$row['nombre']." ".$row['apellidos']."</h3>
-                                <p><b>Edad:</b> ".$row['edad']."</p>
-                                <p><b>Ciudad de nacimiento:</b> ".$row['ciudad_nacimiento']."</p>
-                            </p>";
+        $idOj = "";
+        $idJu = "";
+        
+        if($result->num_rows >0){
+            while($row = $result->fetch_array()) {
+                $idOj = $row['id'];
+                $this->html = "<h3>Negociaciones activas de ".$row['nombre']."</h3>";
+
+                $query2 = "SELECT * FROM Ojea WHERE id_ojeador = ? AND negociacion = 1";
+                $stmt2 = $this->db->prepare($query2);
+                $stmt2->bind_param("s", $idOj);
+                $stmt2->execute();
+                $result2 = $stmt2->get_result();
+
+                while($row2 = $result2->fetch_array()) {
+                    $idJu = $row2['id_jugador'];
+
+                    $query3 = "SELECT * FROM Jugador WHERE id = ?";
+                    $stmt3 = $this->db->prepare($query3);
+                    $stmt3->bind_param("s", $idJu);
+                    $stmt3->execute();
+                    $result3 = $stmt3->get_result();
+
+                    while($row3 = $result3->fetch_array()) {
+                        $query4 = "SELECT * FROM Equipo WHERE id = ?";
+                        $stmt4 = $this->db->prepare($query4);
+                        $stmt4->bind_param("s", $row['id_equipo']);
+                        $stmt4->execute();
+                        $result4 = $stmt4->get_result();
+
+                        $this->html .= "<p>
+                                            <h4>".$row3['nombre']." ".$row3['apellidos']."</h4>
+                                            <p><b>Edad:</b> ".$row3['edad']."</p>
+                                            <p><b>Internacional:</b> ".($row3['internacional'] ? "Si" : "No")."</p>
+                                            <p><b>Posición:</b> ".$row3['posicion']."</p>
+                                            <p><b>País:</b> ".$row3['pais']."</p>
+                                            <p><b>Goles:</b> ".$row3['goles']."</p>
+                                            <p><b>Equipo:</b> ".$result4->fetch_array()['nombre']."</p>
+                                        </p>";
+                        
+                        $stmt4->close();
+                    }
+                    $stmt3->close();
+                }
+                $stmt2->close();
+            }
+        }else{
+            $this->html .= "<p>No hay resultados para tu búsqueda</p>";
         }
+        $stmt->close();
+    }
+
+    public function golesEquipoHTML() {
+        $this->db = new mysqli($this->localhost, $this->username, $this->password, $this->dbname);
+        $query = "SELECT * FROM Equipo";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $index=1;
+
+        $this->html = "";
+        if($result->num_rows > 0) {
+            $this->html .= 
+            "<h2>Área de búsqueda</h2>
+            <p>Elija el equipo que desea buscar:</p>
+            <form action='#' method='post'>";
+
+            while($row = $result->fetch_assoc()) {
+                $id_equipo = $row['id'];
+                $nombre = $row['nombre'];
+
+                $this->html .= "<label for='".$id_equipo."'>".$nombre."</label>";
+                if($index!=1){
+                    $this->html .= "<input id='".$id_equipo."' type='radio' value='".$id_equipo."' name='equipos'>";
+                }else{
+                    $this->html .= "<input id='".$id_equipo."' type='radio' value='".$id_equipo."' name='equipos' checked>";
+                }
+                
+                $index += 1;
+            }
+            $this->html .= "<input type='submit' name='goEq' value='Buscar' />
+                        </form>";
+        }else{
+            $this->html .= "<p>No hay Equipos</p>";
+        }
+        $stmt->close();
+    }
+
+    public function golesEquipo($idEquipo) {
+        $this->db = new mysqli($this->localhost, $this->username, $this->password, $this->dbname);
+        $query = "SELECT * FROM Jugador WHERE id_equipo = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $idEquipo);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $this->html = "<h2>Resultado de la búsqueda</h2>";
+
+        $goles = 0;
+
+        while($row = $result->fetch_array()) {
+            $goles += $row['goles'];
+        }
+    
+        $this->html .= "<p>Los jugadores del equipo han marcado ".$goles." goles</p>";
+
+        $stmt->close();
+    }
+
+    public function numLigaHTML() {
+        $this->db = new mysqli($this->localhost, $this->username, $this->password, $this->dbname);
+        $query = "SELECT DISTINCT liga FROM Equipo";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $index=1;
+
+        $this->html = "";
+        if($result->num_rows > 0) {
+            $this->html .= 
+            "<h2>Área de búsqueda</h2>
+            <p>Elija la liga que desea buscar:</p>
+            <form action='#' method='post'>";
+
+            while($row = $result->fetch_assoc()) {
+                $liga = $row['liga'];
+
+                $this->html .= "<label for='".$liga."'>".$liga."</label>";
+                if($index!=1){
+                    $this->html .= "<input id='".$liga."' type='radio' value='".$liga."' name='ligas'>";
+                }else{
+                    $this->html .= "<input id='".$liga."' type='radio' value='".$liga."' name='ligas' checked>";
+                }
+                
+                $index += 1;
+            }
+            $this->html .= "<input type='submit' name='nmLg' value='Buscar' />
+                        </form>";
+        }else{
+            $this->html .= "<p>No hay ligas disponibles</p>";
+        }
+        $stmt->close();
+    }
+
+    public function numLiga($liga) {
+        $this->db = new mysqli($this->localhost, $this->username, $this->password, $this->dbname);
+        $query = "SELECT * FROM Equipo WHERE liga = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $liga);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $this->html = "<h2>Resultado de la búsqueda</h2>";
+
+        $num = 0;
+
+        while($row = $result->fetch_array()) {
+            //Por cada equipo de la liga, se cuenta el numero de jugadores
+            $query2 = "SELECT count(*) FROM Jugador WHERE id_equipo = ?";
+            $stmt2 = $this->db->prepare($query2);
+            $stmt2->bind_param("s", $row['id']);
+            $stmt2->execute();
+            $result2 = $stmt2->get_result();
+            while($row2 = $result2->fetch_array()) {
+                $num += $row2[0];
+            }
+            $stmt2->close();
+        }
+
+        $this->html .= "<p>Hay ".$num." jugadores que jueguen en ".$liga."</p>";
+
+        $stmt->close();
     }
 }
 
@@ -215,22 +421,28 @@ if (count($_POST) > 0){
         $_SESSION['db']->searchOjeador($_POST['nameSurnameO']);
     }
     if(isset($_POST['numLiga'])){
-        //quiere num de equipos de una liga
+        //quiere num de jugadores de una liga
+        $_SESSION['db']->numLigaHTML();
     }
     if(isset($_POST['nmLg'])){
         //ha interactuado con el input num liga
+        $_SESSION['db']->numLiga($_POST['ligas']);
     }
     if(isset($_POST['jugadorNegoOjeadorNombre'])){
-        //quiere num de equipos de una liga
+        //quiere negociaciones del ojeador
+        $_SESSION['db']->negoOjeadorHTML();
     }
     if(isset($_POST['juNeOjNo'])){
-        //ha interactuado con el input num liga
+        //ha interactuado con el input negociacion
+        $_SESSION['db']->negoOjeador($_POST['jugadorNegoOjeadorNombre']);
     }
     if(isset($_POST['golesEquipo'])){
-        //quiere num de equipos de una liga
+        //quiere goles de un equipo
+        $_SESSION['db']->golesEquipoHTML();
     }
     if(isset($_POST['goEq'])){
-        //ha interactuado con el input num liga
+        //ha interactuado con el input goles de un equipo
+        $_SESSION['db']->golesEquipo($_POST['equipos']);
     }
     if(isset($_POST['jugadorInterMedio'])){
         //quiere num de equipos de una liga
@@ -257,6 +469,7 @@ echo
         <meta name='keywords' content='sporting,gijon,real,informacion,localizacion,estadio,equipacion' />
         <title>Información del Real Sporting de Gijón</title>
         <link rel='stylesheet' type='text/css' href='estilo/estilo.css' />
+        <link rel='stylesheet' type='text/css' href='estilo/estiloOjeadores.css' />
         <link rel='stylesheet' type='text/css' href='estilo/layout.css' />
     </head>
     
@@ -383,6 +596,41 @@ echo
                             <li>Posición en la liga</li>
                         </ul>
                 </p>
+                <p>
+                        El archivo tendrá que tener la siguiente estructura para ser válido:
+                </p>
+                <pre>
+                        {
+                            '\"ojeadores\": [
+                                    {
+                                        '\"nombre\": \"Nombre ojeador\",
+                                        '\"apellidos\": \"Apellidos ojeador\",
+                                        '\"edad\": \"Edad\",
+                                        '\"ciudad_nacimiento\": \"Ciudad de nacimiento\",
+                                        '\"jugadores\": [
+                                            {
+                                                '\"nombre\": \"Nombre jugador\",
+                                                '\"apellidos\": \"Apellidos jugador\",
+                                                '\"edad\": \"Edad\",
+                                                '\"internacional\": \"Internacionalidad (true o false)\",
+                                                '\"posicion\": \"Posición\",
+                                                '\"pais\": \"País de procedencia\",
+                                                '\"goles\": \"Goles\",
+                                                '\"negociaciones\": \"Negociaciones (true o false)\",
+                                                '\"tiempo_meses\": \"Tiempo ojeado en meses\"
+                                                '\"equipo\": {
+                                                    '\"nombre\": \"Nombre equipo\",
+                                                    '\"ciudad\": \"Ciudad\",
+                                                    '\"estadio\": \"Estadio\",
+                                                    '\"liga\": \"Liga\",
+                                                    '\"posicion_liga\": \"Posición\"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                        }
+                </pre>
                 <!--Introducir formulario para subir archivo-->
                 <fieldset>
                     <label for='jsonFile'>Sube el archivo JSON que desea procesar:</label>
