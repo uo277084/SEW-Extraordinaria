@@ -93,6 +93,10 @@ class OjeadoresDB {
         return $this->html;
     }
 
+    public function clearHTML() {
+        $this->html = "";
+    }
+
     /**
      * Función que recoge los nombres y apellidos de todos los ojeadores
      */
@@ -121,6 +125,53 @@ class OjeadoresDB {
         }
         $stmt->close();
         return $list;
+    }
+
+    public function searchEquipoHTML() {
+        $this->html = 
+            "<h2>Área de búsqueda</h2>
+            <form action='#' method='post'>
+                <label for='ne'>Inserte nombre del equipo que desea buscar</label>
+                <input id='ne' type='text' name='nameE' placeholder='Nombre' />
+                <input type='submit' name='eqNa' value='Buscar' />
+            </form>";
+    }
+
+    public function searchEquipo($text){
+        $textQuery = "%".$text."%";
+        $this->html = "<h2>Resultado de la búsqueda</h2>";
+        $this->db = new mysqli($this->localhost, $this->username, $this->password, $this->dbname);
+        $query = "SELECT * FROM Equipo WHERE nombre LIKE ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $textQuery);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if($result->num_rows >0){
+            while($row = $result->fetch_array()) {
+                $query2 = "SELECT * FROM Jugador WHERE id_equipo = ?";
+                $stmt2 = $this->db->prepare($query2);
+                $stmt2->bind_param("s", $row['id']);
+                $stmt2->execute();
+                $result2 = $stmt2->get_result();
+
+                while($row2 = $result2->fetch_array()) {
+                    $this->html .= "<p>
+                                        <h3>".$row2['nombre']." ".$row2['apellidos']."</h3>
+                                        <p><b>Edad:</b> ".$row2['edad']."</p>
+                                        <p><b>Internacional:</b> ".($row2['internacional'] ? "Si" : "No")."</p>
+                                        <p><b>Posición:</b> ".$row2['posicion']."</p>
+                                        <p><b>País:</b> ".$row2['pais']."</p>
+                                        <p><b>Goles:</b> ".$row2['goles']."</p>
+                                    </p>";
+                }
+                
+                $stmt2->close();
+            }
+        }else{
+            $this->html .= "<p>No hay resultados para tu búsqueda</p>";
+        }
+        $stmt->close();
     }
 
     public function searchJugadorHTML() {
@@ -343,7 +394,7 @@ class OjeadoresDB {
         if($result->num_rows > 0) {
             $this->html .= 
             "<h2>Área de búsqueda</h2>
-            <p>Elija la liga que desea buscar:</p>
+            <p>Elija una de las siguientes ligas disponibles para buscar:</p>
             <form action='#' method='post'>";
 
             while($row = $result->fetch_assoc()) {
@@ -394,6 +445,50 @@ class OjeadoresDB {
 
         $stmt->close();
     }
+
+    public function jugadorInter() {
+        $this->db = new mysqli($this->localhost, $this->username, $this->password, $this->dbname);
+        $query = "SELECT * FROM Ojea WHERE tiempo_meses > 6";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $this->html = "<h2>Resultado de la búsqueda</h2>";
+
+        if($result->num_rows > 0) {
+            while($row = $result->fetch_array()) {
+                //Por cada relacion ojea, coger la info del jugador
+                $query2 = "SELECT * FROM Jugador WHERE id = ?";
+                $stmt2 = $this->db->prepare($query2);
+                $stmt2->bind_param("s", $row['id_jugador']);
+                $stmt2->execute();
+                $result2 = $stmt2->get_result();
+                while($row2 = $result2->fetch_array()) {
+                    $query3 = "SELECT * FROM Equipo WHERE id = ?";
+                    $stmt3 = $this->db->prepare($query3);
+                    $stmt3->bind_param("s", $row2['id_equipo']);
+                    $stmt3->execute();
+                    $result3 = $stmt3->get_result();
+
+                    $this->html .= "<p>
+                                        <h3>".$row2['nombre']." ".$row2['apellidos']."</h3>
+                                        <p><b>Edad:</b> ".$row2['edad']."</p>
+                                        <p><b>Internacional:</b> ".($row2['internacional'] ? "Si" : "No")."</p>
+                                        <p><b>Posición:</b> ".$row2['posicion']."</p>
+                                        <p><b>País:</b> ".$row2['pais']."</p>
+                                        <p><b>Goles:</b> ".$row2['goles']."</p>
+                                        <p><b>Equipo:</b> ".$result3->fetch_array()['nombre']."</p>
+                                    </p>";
+                    
+                    $stmt3->close();
+                }
+                $stmt2->close();
+            }
+        }else{
+            $this->html .= "<p>No hay resultados para tu búsqueda</p>";
+        }
+
+        $stmt->close();
+    }
 }
 
 if(isset($_SESSION['db'])){
@@ -403,7 +498,17 @@ if(isset($_SESSION['db'])){
     $_SESSION['db'] = new OjeadoresDB();
 }
 
+$_SESSION['db']->clearHTML();
+
 if (count($_POST) > 0){
+    if(isset($_POST['equipoName'])){
+        //quiere buscar por nombre/apellido de jugador
+        $_SESSION['db']->searchEquipoHTML();
+    }
+    if(isset($_POST['eqNa'])){
+        //ha interactuado con el input de buscar jugador
+        $_SESSION['db']->searchEquipo($_POST['nameE']);
+    }
     if(isset($_POST['jugadorNameSurname'])){
         //quiere buscar por nombre/apellido de jugador
         $_SESSION['db']->searchJugadorHTML();
@@ -446,9 +551,7 @@ if (count($_POST) > 0){
     }
     if(isset($_POST['jugadorInterMedio'])){
         //quiere num de equipos de una liga
-    }
-    if(isset($_POST['juInMe'])){
-        //ha interactuado con el input num liga
+        $_SESSION['db']->jugadorInter();
     }
 }
 
@@ -469,7 +572,7 @@ echo
         <meta name='keywords' content='sporting,gijon,real,informacion,localizacion,estadio,equipacion' />
         <title>Información del Real Sporting de Gijón</title>
         <link rel='stylesheet' type='text/css' href='estilo/estilo.css' />
-        <link rel='stylesheet' type='text/css' href='estilo/estiloOjeadores.css' />
+        <link rel='stylesheet' type='text/css' href='estilo/estiloOjeadoresPhp.css' />
         <link rel='stylesheet' type='text/css' href='estilo/layout.css' />
     </head>
     
@@ -524,6 +627,10 @@ echo
                 </p>
                 <!--Opciones de manejo-->
                 <form action='#' method='post'>
+                    <fieldset>
+                        <label for='en'>Buscar por nombre de equipo</label>
+                        <input id='en' type='submit' name='equipoName' value='Buscar' />
+                    </fieldset>
                     <fieldset>
                         <label for='jns'>Buscar por nombre o apellido de jugador</label>
                         <input id='jns' type='submit' name='jugadorNameSurname' value='Buscar' />
