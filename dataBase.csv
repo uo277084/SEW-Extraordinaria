@@ -1,11 +1,23 @@
 ﻿
 O,Carlos,Hernández Menéndez,32,Sevilla,1
 O,José María,Giménez López,52,Roma,2
+O,Verónica,Álvarez García,38,Madrid,3
 E,Atlético de Madrid,Madrid,Wanda Metropolitano,Primera División,3,1
 E,Valencia C. F., Valencia,Mestalla,Primera División,9,2
+E,Manchester City,Manchester,Etihad Stadium,Premier League,1,3
+E,Juventus F. C.,Turín,Juventus Stadium,Serie A,4,4
+E,Paris Saint-Germain F. C.,Paris,Parque de los Príncipes,Ligue 1,1,5
 J,Mario,Hermoso Sánchez,26,1,Delantero,España,16,1,1
 J,Rodrigo,Javier De Paul,28,1,Mediocentro,Argentina,3,1,2
 J,José Luis,Gayá Domenech,27,1,Defensa,España,4,2,3
+J,Kevin,De Bruyne,30,1,Mediocentro,Bélgica,5,3,4
+J,Raheem,Shaquille Sterling,27,0,Delantero,Jamaica,6,3,5
+J,Federico,Chiesa,24,1,Delantero,Italia,13,4,6
+J,Gianluigi,Donnarumma,23,0,Portero,Italia,0,5,7
 A,1,7,1,1
 A,0,3,2,2
 A,1,8,2,3
+A,0,3,3,4
+A,1,12,3,5
+A,1,9,1,6
+A,0,3,2,7
