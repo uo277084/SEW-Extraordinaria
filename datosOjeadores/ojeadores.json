@@ -1,0 +1,116 @@
+[
+    {
+        "nombre": "Jose Manuel",
+        "apellidos": "Rodríguez López",
+        "age": 29,
+        "ciudad_nacimiento": "Madrid",
+        "jugadores": [
+            {
+                "nombre": "Fernando Javier",
+                "apellidos": "Llorente Torres",
+                "age": 37,
+                "internacional": true,
+                "posicion": "Delantero",
+                "pais": "España",
+                "goles": 10,
+                "negociacion": true,
+                "tiempo_meses": 7,
+                "equipo": {
+                    "nombre": "Sociedad Deportiva Eibar",
+                    "ciudad": "Éibar",
+                    "estadio": "Estadio Municipal de Ipurúa",
+                    "liga": "Segunda División",
+                    "posicion_liga": 3
+                }
+            },
+            {
+                "nombre": "Aitor",
+                "apellidos": "Puñal Rodríguez",
+                "age": 23,
+                "internacional": false,
+                "posicion": "Defensa",
+                "pais": "España",
+                "goles": 1,
+                "negociacion": false,
+                "tiempo_meses": 1,
+                "equipo": {
+                    "nombre": "Unión Deportiva Almería",
+                    "ciudad": "Almería",
+                    "estadio": "Estadio Municipal de los Juegos del Mediterráneo",
+                    "liga": "Segunda División",
+                    "posicion_liga": 1
+                }
+            }
+        ]
+    },
+    {
+        "nombre": "Javier",
+        "apellidos": "Hernández Sánchez",
+        "age": 43,
+        "ciudad_nacimiento": "Barcelona",
+        "jugadores": [
+            {
+                "nombre": "Christian Ricardo",
+                "apellidos": "Stuani Curbelo",
+                "age": 35,
+                "internacional": true,
+                "posicion": "Delantero",
+                "pais": "Uruguay",
+                "goles": 13,
+                "negociacion": true,
+                "tiempo_meses": 12,
+                "equipo": {
+                    "nombre": "Girona Fútbol Club",
+                    "ciudad": "Gerona",
+                    "estadio": "Estadi Municipal Montilivi",
+                    "liga": "Segunda División",
+                    "posicion_liga": 6
+                }
+            },
+            {
+                "nombre": "Roque",
+                "apellidos": "Mesa Quevedo",
+                "age": 32,
+                "internacional": false,
+                "posicion": "Centrocampista",
+                "pais": "España",
+                "goles": 4,
+                "negociacion": false,
+                "tiempo_meses": 3,
+                "equipo": {
+                    "nombre": "Real Valladolid C. F.",
+                    "ciudad": "Valladolid",
+                    "estadio": "Estadio José Zorrilla",
+                    "liga": "Segunda División",
+                    "posicion_liga": 2
+                }
+            }
+        ]
+    },
+    {
+        "nombre": "Roberto Carlos",
+        "apellidos": "Nazario Zidane",
+        "age": 34,
+        "ciudad_nacimiento": "Valencia",
+        "jugadores": [
+            {
+                "nombre": "Miquel",
+                "apellidos": "Vesga Arruti",
+                "age": 29,
+                "internacional": false,
+                "posicion": "Centrocampista",
+                "pais": "España",
+                "goles": 3,
+                "negociacion": true,
+                "tiempo_meses": 9,
+                "equipo": {
+                    "nombre": "Athletic Club",
+                    "ciudad": "Bilbao",
+                    "estadio": "San Mamés",
+                    "liga": "Primera División",
+                    "posicion_liga": 8
+                }
+            }
+        ]
+    }
+]

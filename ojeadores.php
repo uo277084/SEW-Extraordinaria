@@ -6,12 +6,16 @@ class OjeadoresDB {
 
     private $db;
     private $html;
+    private $message;
 
     private $localhost = "localhost";
     private $username = "DBUSER2021";
     private $password = "DBPSWD2021";
     private $dbname = "ojeadores2122";
 
+    /**
+     * Constructor. Crea una conexión a la base de datos, crea las tablas si no existen y carga los datos del archivo CSV a la base de datos.
+     */
     public function __construct() {
         $this->html = "";
         $this->createDB();
@@ -42,7 +46,7 @@ class OjeadoresDB {
                             apellidos VARCHAR(255) NOT NULL,
                             edad INT NOT NULL,
                             ciudad_nacimiento VARCHAR(255) NOT NULL,
-                            id VARCHAR(255) NOT NULL,
+                            id INT NOT NULL,
                             
                             PRIMARY KEY (id)
         );");
@@ -54,7 +58,7 @@ class OjeadoresDB {
                             estadio VARCHAR(255) NOT NULL,
                             liga VARCHAR(255) NOT NULL,
                             posicion_liga INT NOT NULL,
-                            id VARCHAR(255) NOT NULL,
+                            id INT NOT NULL,
                             
                             PRIMARY KEY (id)
         );");
@@ -68,8 +72,8 @@ class OjeadoresDB {
                             posicion VARCHAR(255) NOT NULL,
                             pais VARCHAR(255) NOT NULL,
                             goles INT NOT NULL,
-                            id_equipo VARCHAR(255) NOT NULL,
-                            id VARCHAR(255) NOT NULL,
+                            id_equipo INT NOT NULL,
+                            id INT NOT NULL,
                             
                             PRIMARY KEY (id),
                             CONSTRAINT FK_Equipo FOREIGN KEY (id_equipo) REFERENCES Equipo(id)
@@ -81,8 +85,8 @@ class OjeadoresDB {
                             tiempo_meses INT NOT NULL,
 
                             /* Ids objetos relacionados */
-                            id_ojeador VARCHAR(255) NOT NULL,
-                            id_jugador VARCHAR(255) NOT NULL,
+                            id_ojeador INT NOT NULL,
+                            id_jugador INT NOT NULL,
                             
                             PRIMARY KEY (id_ojeador, id_jugador),
                             CONSTRAINT FK_Ojeador FOREIGN KEY (id_ojeador) REFERENCES Ojeador(id),
@@ -97,77 +101,65 @@ class OjeadoresDB {
         $file = fopen("dataBase.csv", "r");
         while(($line = fgetcsv($file)) !== false){
             if($line[0] == "O"){
-                $this->insertOjeador($line[1], $line[2], $line[3], $line[4], $line[5]);
+                $query = "SELECT count(*) FROM Ojeador WHERE id = ?";
+                $stmt = $this->db->prepare($query);
+                $stmt->bind_param("s", $line[5]);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $num=0;
+                while($row = $result->fetch_array()) {
+                    $num = $row[0];
+                }
+                $stmt->close();
+                if($num==0){
+                    $this->insertOjeador($line[1], $line[2], $line[3], $line[4], $line[5]);
+                }
             }
             else if($line[0] == "E"){
-                $this->insertEquipo($line[1], $line[2], $line[3], $line[4], $line[5], $line[6]);
+                $query = "SELECT count(*) FROM Equipo WHERE id = ?";
+                $stmt = $this->db->prepare($query);
+                $stmt->bind_param("s", $line[6]);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $num=0;
+                while($row = $result->fetch_array()) {
+                    $num = $row[0];
+                }
+                $stmt->close();
+                if($num==0){
+                    $this->insertEquipo($line[1], $line[2], $line[3], $line[4], $line[5], $line[6]);
+                }
+                
             }
             else if($line[0] == "J"){
-                $this->insertJugador($line[1], $line[2], $line[3], $line[4], $line[5], $line[6], $line[7], $line[8], $line[9]);
+                $query = "SELECT count(*) FROM Jugador WHERE id = ?";
+                $stmt = $this->db->prepare($query);
+                $stmt->bind_param("s", $line[9]);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $num=0;
+                while($row = $result->fetch_array()) {
+                    $num = $row[0];
+                }
+                $stmt->close();
+                if($num==0){
+                    $this->insertJugador($line[1], $line[2], $line[3], $line[4], $line[5], $line[6], $line[7], $line[8], $line[9]);
+                }
             }
             else if($line[0] == "A"){
-                $this->insertOjea($line[1], $line[2], $line[3], $line[4]);
-            }
-        }
-        fclose($file);
-    }
-
-    /*
-    $archivo = $_POST['enviarArchivo'];
-                $data = file_get_contents($archivo);
-                $libros = json_decode($data, true);
-
-                foreach ($libros as $libro) {
-                    $this->db = new mysqli($this->servername, $this->username, $this->password, $this->database);
-                    $consultaPre = $this->db->query("SELECT MAX(ID_L) FROM libros");
-                    $row = $consultaPre->fetch_assoc();
-
-                    if ($row != null) {
-                        $newIDLibro = $row['MAX(ID_L)'] + 1;
-                        $consultaPre->close();
-                    } else {
-                        $_SESSION['sinErroresAñadir'] = 1;
-                        echo "<p>Error al registrar el libro</p>";
-                        exit();
-                    }
-                    $consultaPre = $this->db->prepare("INSERT INTO libros (ID_L, ID_U, Publicacion, Paginas, Editorial, Descripcion, Target, Autor, Recomendacion, Nombre, Tipo, Dificultad, Portada, Isbn)  VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-
-                    //añade los parámetros de la variable Predefinida $_POST
-                    // sss indica que se añaden 3 string
-                    $consultaPre->bind_param(
-                        'iisissssisssss',
-                        $newIDLibro,
-                        $_SESSION['user_id'],
-                        $libro["fecha_publicacion"],
-                        $libro["paginas"],
-                        $libro["editorial"],
-                        $libro["descripcion"],
-                        $libro["target"],
-                        $libro["autor"],
-                        $libro["recomendacion"],
-                        $libro["nombre"],
-                        $libro["tipo"],
-                        $libro["dificultad"],
-                        $libro["portada"],
-                        $libro["isbn"],
-                    );
-    */
-    public function loadJSON(){
-        //Coger json del input
-        $file = fopen("ojeadores.json", "r");
-        while(($line = fget) !== false){
-            $this->debug_to_console($line);
-            if($line[0] == "O"){
-                $this->insertOjeador($line[1], $line[2], $line[3], $line[4], $line[5]);
-            }
-            else if($line[0] == "E"){
-                $this->insertEquipo($line[1], $line[2], $line[3], $line[4], $line[5], $line[6]);
-            }
-            else if($line[0] == "J"){
-                $this->insertJugador($line[1], $line[2], $line[3], $line[4], $line[5], $line[6], $line[7], $line[8], $line[9]);
-            }
-            else if($line[0] == "A"){
-                $this->insertOjea($line[1], $line[2], $line[3], $line[4]);
+                $query = "SELECT count(*) FROM Ojea WHERE id_ojeador = ? AND id_jugador = ?";
+                $stmt = $this->db->prepare($query);
+                $stmt->bind_param("ss", $line[8], $line[9]);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $num=0;
+                while($row = $result->fetch_array()) {
+                    $num = $row[0];
+                }
+                $stmt->close();
+                if($num==0){
+                    $this->insertOjea($line[1], $line[2], $line[3], $line[4]);
+                }
             }
         }
         fclose($file);
@@ -180,7 +172,7 @@ class OjeadoresDB {
         $this->db = new mysqli($this->localhost, $this->username, $this->password, $this->dbname);
         $query = "INSERT INTO Ojeador(nombre, apellidos, edad, ciudad_nacimiento, id) VALUES (?,?,?,?,?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("ssiss", $nombre, $apellidos, $edad, $ciudad_nacimiento, $id);
+        $stmt->bind_param("ssisi", $nombre, $apellidos, $edad, $ciudad_nacimiento, $id);
         $stmt->execute();
         $stmt->close();
     }
@@ -192,7 +184,7 @@ class OjeadoresDB {
         $this->db = new mysqli($this->localhost, $this->username, $this->password, $this->dbname);
         $query = "INSERT INTO Equipo(nombre, ciudad, estadio, liga, posicion_liga, id) VALUES (?,?,?,?,?,?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("ssssis", $nombre, $ciudad, $estadio, $liga, $posicion_liga, $id);
+        $stmt->bind_param("ssssii", $nombre, $ciudad, $estadio, $liga, $posicion_liga, $id);
         $stmt->execute();
         $stmt->close();
     }
@@ -204,7 +196,7 @@ class OjeadoresDB {
         $this->db = new mysqli($this->localhost, $this->username, $this->password, $this->dbname);
         $query = "INSERT INTO Jugador(nombre, apellidos, edad, internacional, posicion, pais, goles, id_equipo, id) VALUES (?,?,?,?,?,?,?,?,?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("ssiississ", $nombre, $apellidos, $edad, $internacional, $posicion, $pais, $goles, $id_equipo, $id);
+        $stmt->bind_param("ssiissiii", $nombre, $apellidos, $edad, $internacional, $posicion, $pais, $goles, $id_equipo, $id);
         $stmt->execute();
         $stmt->close();
     }
@@ -216,17 +208,44 @@ class OjeadoresDB {
         $this->db = new mysqli($this->localhost, $this->username, $this->password, $this->dbname);
         $query = "INSERT INTO Ojea(negociacion, tiempo_meses, id_ojeador, id_jugador) VALUES (?,?,?,?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("iiss", $negociacion, $tiempo_meses, $id_ojeador, $id_jugador);
+        $stmt->bind_param("iiii", $negociacion, $tiempo_meses, $id_ojeador, $id_jugador);
         $stmt->execute();
         $stmt->close();
     }
 
+    /**
+     * Función que devuelve el atributo html
+     */
     public function getHTML() {
         return $this->html;
     }
 
+    /**
+     * Función que le da valor vacío al atributo html
+     */
     public function clearHTML() {
         $this->html = "";
+    }
+
+    /**
+     * Función que devuelve el atributo message
+     */
+    public function getMessage() {
+        return $this->message;
+    }
+
+    /**
+     * Función que le da el valor pasado por parámetro al atributo message
+     */
+    public function setMessage($messagetext) {
+        $this->message = $messagetext;
+    }
+
+    /**
+     * Función que le da valor vacío al atributo message
+     */
+    public function clearMessage() {
+        $this->message = "";
     }
 
     /**
@@ -259,16 +278,22 @@ class OjeadoresDB {
         return $list;
     }
 
+    /**
+     * Función que establece el valor de html como un formulario para insertar el nombre de un equipo
+     */
     public function searchEquipoHTML() {
         $this->html = 
             "<h2>Área de búsqueda</h2>
             <form action='#' method='post'>
-                <label for='ne'>Inserte nombre del equipo que desea buscar</label>
+                <label for='ne'>Inserte nombre del equipo que desea buscar (la primera letra del nombre debe ir en mayúsculas)</label>
                 <input id='ne' type='text' name='nameE' placeholder='Nombre' />
                 <input type='submit' name='eqNa' value='Buscar' />
             </form>";
     }
 
+    /**
+     * Función que busca el equipo cuyo nombre contenga la cadena pasada como parámetro	
+     */
     public function searchEquipo($text){
         $textQuery = "%".$text."%";
         $this->html = "<h2>Resultado de la búsqueda</h2>";
@@ -307,16 +332,22 @@ class OjeadoresDB {
         $stmt->close();
     }
 
+    /**
+     * Función que establece el valor de html como un formulario para insertar el nombre o apellidos de un jugador
+     */
     public function searchJugadorHTML() {
         $this->html = 
             "<h2>Área de búsqueda</h2>
             <form action='#' method='post'>
-                <label for='nsj'>Inserte nombre o apellido del jugador que desea buscar</label>
+                <label for='nsj'>Inserte nombre o apellido del jugador que desea buscar (la primera letra del nombre y de los apellidos debe ir en mayúsculas)</label>
                 <input id='nsj' type='text' name='nameSurnameJ' placeholder='Nombre o apellido' />
                 <input type='submit' name='juNaSu' value='Buscar' />
             </form>";
     }
 
+    /**
+     * Función que busca el jugador cuyo nombre o apellido contenga la cadena pasada como parámetro	
+     */
     public function searchJugador($text){
         $textQuery = "%".$text."%";
         $this->html = "<h2>Resultado de la búsqueda</h2>";
@@ -357,6 +388,9 @@ class OjeadoresDB {
         $stmt->close();
     }
 
+    /**
+     * Función que establece el valor de html como un formulario para insertar el nombre o apellidos de un ojeador
+     */
     public function searchOjeadorHTML() {
         $this->html = 
             "<h2>Área de búsqueda</h2>
@@ -367,6 +401,9 @@ class OjeadoresDB {
             </form>";
     }
 
+    /**
+     * Función que busca el ojeador cuyo nombre o apellido contenga la cadena pasada como parámetro	
+     */
     public function searchOjeador($text){
         $textQuery = "%".$text."%";
         $this->html = "<h2>Resultado de la búsqueda</h2>";
@@ -427,6 +464,9 @@ class OjeadoresDB {
         $stmt->close();
     }
 
+    /**
+     * Función que establece el valor de html como un formulario para insertar el nombre o apellidos de un ojeador
+     */
     public function negoOjeadorHTML() {
         $this->html = 
             "<h2>Área de búsqueda</h2>
@@ -437,6 +477,9 @@ class OjeadoresDB {
             </form>";
     }
 
+    /**
+     * Función que busca las negociaciones activas del ojeador cuyo nombre o apellidos contienen la cadena pasada como parámetro	
+     */
     public function negoOjeador($text){
         $textQuery = "%".$text."%";
         $this->html = "<h2>Resultado de la búsqueda</h2>";
@@ -503,6 +546,9 @@ class OjeadoresDB {
         $stmt->close();
     }
 
+    /**
+     * Función que establece el valor de html como un formulario para elegir el radio button del equipo que queremos buscar
+     */
     public function golesEquipoHTML() {
         $this->db = new mysqli($this->localhost, $this->username, $this->password, $this->dbname);
         $query = "SELECT * FROM Equipo";
@@ -539,6 +585,9 @@ class OjeadoresDB {
         $stmt->close();
     }
 
+    /**
+     * Función que cuenta los goles que han marcado los jugadores del equipo cuyo nombre contiene la cadena pasada como parámetro
+     */
     public function golesEquipo($idEquipo) {
         $this->db = new mysqli($this->localhost, $this->username, $this->password, $this->dbname);
         $query = "SELECT * FROM Jugador WHERE id_equipo = ?";
@@ -559,6 +608,9 @@ class OjeadoresDB {
         $stmt->close();
     }
 
+    /**
+     * Función que establece el valor de html como un formulario para elegir el radio button de la liga que queremos buscar
+     */
     public function numLigaHTML() {
         $this->db = new mysqli($this->localhost, $this->username, $this->password, $this->dbname);
         $query = "SELECT DISTINCT liga FROM Equipo";
@@ -594,6 +646,9 @@ class OjeadoresDB {
         $stmt->close();
     }
 
+    /**
+     * Función que cuenta el número de jugadores ojeados que hay de la liga cuyo nombre contiene la cadena pasada como parámetro
+     */
     public function numLiga($liga) {
         $this->db = new mysqli($this->localhost, $this->username, $this->password, $this->dbname);
         $query = "SELECT * FROM Equipo WHERE liga = ?";
@@ -623,6 +678,9 @@ class OjeadoresDB {
         $stmt->close();
     }
 
+    /**
+     * Función que busca los jugadores internacionales que llevan siendo ojeados más de 6 meses
+     */
     public function jugadorInter() {
         $this->db = new mysqli($this->localhost, $this->username, $this->password, $this->dbname);
         $query = "SELECT * FROM Ojea WHERE tiempo_meses > 6";
@@ -676,14 +734,15 @@ if(isset($_SESSION['db'])){
 }
 
 $_SESSION['db']->clearHTML();
+$_SESSION['db']->clearMessage();
 
 if (count($_POST) > 0){
     if(isset($_POST['equipoName'])){
-        //quiere buscar por nombre/apellido de jugador
+        //quiere buscar por nombre de equipo
         $_SESSION['db']->searchEquipoHTML();
     }
     if(isset($_POST['eqNa'])){
-        //ha interactuado con el input de buscar jugador
+        //ha interactuado con el input de buscar equipo
         $_SESSION['db']->searchEquipo($_POST['nameE']);
     }
     if(isset($_POST['jugadorNameSurname'])){
@@ -732,6 +791,7 @@ if (count($_POST) > 0){
     }
 }
 
+$messageShow = $_SESSION['db']->getMessage();
 $listaOjeadores = $_SESSION['db']->getOjeadores();
 $htmlShow = $_SESSION['db']->getHTML();
 
@@ -837,94 +897,13 @@ echo
             </section>
             <section>
                 $htmlShow
+            </section>
             <section>
                 <h2>Nuevos ojeadores</h2>
                 <p>
-                    ¿Quieres trabajar con nosotros? ¿Tus compañeros también? ¡Uníos a nosotros!
-                </p>
-                <p>
-                    Sólo tendréis que adjuntar un archivo JSON en el que aparezcan vuestros datos, pulsar 
-                    el botón 'Subir' y listo.
-                </p>
-                <p>
-                    Los datos que debéis especificar son:
-                        <ul>
-                            <li>Nombre</li>
-                            <li>Apellidos</li>
-                            <li>Edad</li>
-                            <li>Ciudad de nacimiento</li>
-                        </ul>
-                </p>
-                <p>
-                    Si actualmente estaís detrás de un jugador, deberas proporcionar los siguientes datos sobre él:
-                        <ul>
-                            <li>Nombre</li>
-                            <li>Apellidos</li>
-                            <li>Edad</li>
-                            <li>Internacionalidad del jugador (sí o no)</li>
-                            <li>Posición de juego</li>
-                            <li>País de procedencia</li>
-                            <li>Goles marcados</li>
-                            <li>Si hay negociaciones actualmente o no</li>
-                            <li>Tiempo (en meses) que llevas ojeándolo</li>
-                            <li>Datos del equipo en el que juega (especificados a continuación)</li>
-                        </ul>
-                </p>
-                <p>
-                    Los datos del equipo que deberán figurar en el archivo son los siguientes:
-                        <ul>
-                            <li>Nombre</li>
-                            <li>Ciudad</li>
-                            <li>Estadio</li>
-                            <li>Liga</li>
-                            <li>Posición en la liga</li>
-                        </ul>
-                </p>
-                <p>
-                        El archivo tendrá que tener la siguiente estructura para ser válido:
-                </p>
-                <pre>
-                        {
-                            '\"ojeadores\": [
-                                    {
-                                        '\"nombre\": \"Nombre ojeador\",
-                                        '\"apellidos\": \"Apellidos ojeador\",
-                                        '\"edad\": \"Edad\",
-                                        '\"ciudad_nacimiento\": \"Ciudad de nacimiento\",
-                                        '\"jugadores\": [
-                                            {
-                                                '\"nombre\": \"Nombre jugador\",
-                                                '\"apellidos\": \"Apellidos jugador\",
-                                                '\"edad\": \"Edad\",
-                                                '\"internacional\": \"Internacionalidad (true o false)\",
-                                                '\"posicion\": \"Posición\",
-                                                '\"pais\": \"País de procedencia\",
-                                                '\"goles\": \"Goles\",
-                                                '\"negociaciones\": \"Negociaciones (true o false)\",
-                                                '\"tiempo_meses\": \"Tiempo ojeado en meses\"
-                                                '\"equipo\": {
-                                                    '\"nombre\": \"Nombre equipo\",
-                                                    '\"ciudad\": \"Ciudad\",
-                                                    '\"estadio\": \"Estadio\",
-                                                    '\"liga\": \"Liga\",
-                                                    '\"posicion_liga\": \"Posición\"
-                                                }
-                                            }
-                                        ]
-                                    }
-                                ]
-                        }
-                </pre>
-                <!--Introducir formulario para subir archivo-->
-                <fieldset>
-                    <label for='jsonFile'>Sube el archivo JSON que desea procesar:</label>
-                    <input id='jsonFile' type='file' />
-                </fieldset>
-                <p>
-                    <input type='button' value='Subir' />
-                </p>
+                    ¿Quieres trabajar con nosotros? Pulsa <a href='addOjeadores.php'>aquí</a> para obtener más información.
+                </p>	
             </section>
-            <!--Poner aquí el manejo de búsqueda en las tablas--> 
         </main>
 
         <footer>
