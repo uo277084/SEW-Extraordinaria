@@ -17,16 +17,6 @@ class OjeadoresDB {
         $this->createDB();
         $this->createTables();
         $this->loadData();
-        $this->debug_to_console("OjeadoresDB constructor");
-    }
-
-    //TODO quitarla
-    function debug_to_console($data) {
-        $output = $data;
-        if (is_array($output))
-            $output = implode(',', $output);
-    
-        echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
     }
 
     /**
@@ -106,6 +96,66 @@ class OjeadoresDB {
     public function loadData(){
         $file = fopen("dataBase.csv", "r");
         while(($line = fgetcsv($file)) !== false){
+            if($line[0] == "O"){
+                $this->insertOjeador($line[1], $line[2], $line[3], $line[4], $line[5]);
+            }
+            else if($line[0] == "E"){
+                $this->insertEquipo($line[1], $line[2], $line[3], $line[4], $line[5], $line[6]);
+            }
+            else if($line[0] == "J"){
+                $this->insertJugador($line[1], $line[2], $line[3], $line[4], $line[5], $line[6], $line[7], $line[8], $line[9]);
+            }
+            else if($line[0] == "A"){
+                $this->insertOjea($line[1], $line[2], $line[3], $line[4]);
+            }
+        }
+        fclose($file);
+    }
+
+    /*
+    $archivo = $_POST['enviarArchivo'];
+                $data = file_get_contents($archivo);
+                $libros = json_decode($data, true);
+
+                foreach ($libros as $libro) {
+                    $this->db = new mysqli($this->servername, $this->username, $this->password, $this->database);
+                    $consultaPre = $this->db->query("SELECT MAX(ID_L) FROM libros");
+                    $row = $consultaPre->fetch_assoc();
+
+                    if ($row != null) {
+                        $newIDLibro = $row['MAX(ID_L)'] + 1;
+                        $consultaPre->close();
+                    } else {
+                        $_SESSION['sinErroresAñadir'] = 1;
+                        echo "<p>Error al registrar el libro</p>";
+                        exit();
+                    }
+                    $consultaPre = $this->db->prepare("INSERT INTO libros (ID_L, ID_U, Publicacion, Paginas, Editorial, Descripcion, Target, Autor, Recomendacion, Nombre, Tipo, Dificultad, Portada, Isbn)  VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+
+                    //añade los parámetros de la variable Predefinida $_POST
+                    // sss indica que se añaden 3 string
+                    $consultaPre->bind_param(
+                        'iisissssisssss',
+                        $newIDLibro,
+                        $_SESSION['user_id'],
+                        $libro["fecha_publicacion"],
+                        $libro["paginas"],
+                        $libro["editorial"],
+                        $libro["descripcion"],
+                        $libro["target"],
+                        $libro["autor"],
+                        $libro["recomendacion"],
+                        $libro["nombre"],
+                        $libro["tipo"],
+                        $libro["dificultad"],
+                        $libro["portada"],
+                        $libro["isbn"],
+                    );
+    */
+    public function loadJSON(){
+        //Coger json del input
+        $file = fopen("ojeadores.json", "r");
+        while(($line = fget) !== false){
             $this->debug_to_console($line);
             if($line[0] == "O"){
                 $this->insertOjeador($line[1], $line[2], $line[3], $line[4], $line[5]);
@@ -284,6 +334,10 @@ class OjeadoresDB {
                 $stmt2->bind_param("s", $row['id_equipo']);
                 $stmt2->execute();
                 $result2 = $stmt2->get_result();
+                $teamName="";
+                while($row2 = $result2->fetch_array()) {
+                    $teamName = $row2['nombre'];
+                }
 
                 $this->html .= "<p>
                                     <h3>".$row['nombre']." ".$row['apellidos']."</h3>
@@ -292,7 +346,7 @@ class OjeadoresDB {
                                     <p><b>Posición:</b> ".$row['posicion']."</p>
                                     <p><b>País:</b> ".$row['pais']."</p>
                                     <p><b>Goles:</b> ".$row['goles']."</p>
-                                    <p><b>Equipo:</b> ".$result2->fetch_array()['nombre']."</p>
+                                    <p><b>Equipo:</b> ".$teamName."</p>
                                 </p>";
                 
                 $stmt2->close();
@@ -325,11 +379,47 @@ class OjeadoresDB {
         
         if($result->num_rows >0){
             while($row = $result->fetch_array()) {
+                $idOj = $row['id'];
                 $this->html .= "<p>
                                     <h3>".$row['nombre']." ".$row['apellidos']."</h3>
                                     <p><b>Edad:</b> ".$row['edad']."</p>
-                                    <p><b>Ciudad de nacimiento:</b> ".$row['ciudad_nacimiento']."</p>
-                                </p>";
+                                    <p><b>Ciudad de nacimiento:</b> ".$row['ciudad_nacimiento']."</p>";
+
+                $query2 = "SELECT * FROM Ojea WHERE id_ojeador = ?";
+                $stmt2 = $this->db->prepare($query2);
+                $stmt2->bind_param("s", $idOj);
+                $stmt2->execute();
+                $result2 = $stmt2->get_result();
+
+                $this->html .="<p><b>Jugadores que ojea:</b> <p><ol>";
+                while($row2 = $result2->fetch_array()) {
+                    $idJu = $row2['id_jugador'];
+
+                    $query3 = "SELECT * FROM Jugador WHERE id = ?";
+                    $stmt3 = $this->db->prepare($query3);
+                    $stmt3->bind_param("s", $idJu);
+                    $stmt3->execute();
+                    $result3 = $stmt3->get_result();
+
+                    while($row3 = $result3->fetch_array()) {
+                        $query4 = "SELECT * FROM Equipo WHERE id = ?";
+                        $stmt4 = $this->db->prepare($query4);
+                        $stmt4->bind_param("s", $row3['id_equipo']);
+                        $stmt4->execute();
+                        $result4 = $stmt4->get_result();
+                        $teamName = "";
+                        while($row4 = $result4->fetch_array()) {
+                            $teamName = $row4['nombre'];
+                        }
+
+                        $this->html .= "<li>".$row3['nombre']." ".$row3['apellidos']." (".$teamName.")</li>";
+                        
+                        $stmt4->close();
+                    }
+                    $stmt3->close();
+                }
+                $this->html .= "</ol></p></p></p>";
+                $stmt2->close();
             }
         }else{
             $this->html .= "<p>No hay resultados para tu búsqueda</p>";
@@ -383,9 +473,13 @@ class OjeadoresDB {
                     while($row3 = $result3->fetch_array()) {
                         $query4 = "SELECT * FROM Equipo WHERE id = ?";
                         $stmt4 = $this->db->prepare($query4);
-                        $stmt4->bind_param("s", $row['id_equipo']);
+                        $stmt4->bind_param("s", $row3['id_equipo']);
                         $stmt4->execute();
                         $result4 = $stmt4->get_result();
+                        $teamName = "";
+                        while($row4 = $result4->fetch_array()) {
+                            $teamName = $row4['nombre'];
+                        }
 
                         $this->html .= "<p>
                                             <h4>".$row3['nombre']." ".$row3['apellidos']."</h4>
@@ -394,7 +488,7 @@ class OjeadoresDB {
                                             <p><b>Posición:</b> ".$row3['posicion']."</p>
                                             <p><b>País:</b> ".$row3['pais']."</p>
                                             <p><b>Goles:</b> ".$row3['goles']."</p>
-                                            <p><b>Equipo:</b> ".$result4->fetch_array()['nombre']."</p>
+                                            <p><b>Equipo:</b> ".$teamName."</p>
                                         </p>";
                         
                         $stmt4->close();
