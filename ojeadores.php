@@ -782,13 +782,12 @@ echo
         <!-- Datos que describen el documento -->
         <meta charset='UTF-8' />
         <meta name='author' content='Tania Bajo García' />
-        <meta name='description' content='Información sobre el Real Sporting de Gijón'/>
-        <meta name='keywords' content='sporting,gijon,real,informacion,localizacion,estadio,equipacion' />
-        <title>Información del Real Sporting de Gijón</title>
+        <meta name='description' content='Ojeadores'/>
+        <meta name='keywords' content='sporting,gijon,real,ojeadores,temporada,jugadores,equipos' />
+        <title>Ojeadores</title>
         <link rel='stylesheet' type='text/css' href='estilo/estilo.css' />
         <link rel='stylesheet' type='text/css' href='estilo/estiloOjeadoresPhp.css' />
         <link rel='stylesheet' type='text/css' href='estilo/layout.css' />
-        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
     </head>
     
     <body>
@@ -837,7 +836,7 @@ echo
                 <h2>Consulta de información</h2>
                 <p>
                     Actualmente, el Real Sporting cuenta con los servicios de varios ojeadores. Tienes la posibilidad
-                     de consultar información relativa a ellos, a los jugadores que ojean e, incluso de los equipos 
+                     de consultar información relativa a ellos, a los jugadores que ojean e incluso de los equipos 
                      en los que juegan los jugadores ojeados.
                 </p>
                 <!--Opciones de manejo-->

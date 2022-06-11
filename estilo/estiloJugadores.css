@@ -2,12 +2,14 @@
 h3 {
     color: #a51100;
     font-family: Tahoma, serif;
+    background-color: #fff;
 }
 
 /*Especificidad: 001*/
 h4 {
     color: #7d0d00;
     font-family: Tahoma, serif;
+    background-color: #fff;
 }
 
 /*Especificidad: 001*/
@@ -19,12 +21,12 @@ li {
 h5 {
     color: #ce1500;
     font-family: Tahoma, serif;
+    background-color: #fff;
 }
 
 /*Especificidad: 001*/
 fieldset {
     border-color: #c61501;
-    background-color: #fff;
     margin-left: 1.5em;
     margin-right: 1.5em;
 }

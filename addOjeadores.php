@@ -221,9 +221,9 @@ echo
         <!-- Datos que describen el documento -->
         <meta charset='UTF-8' />
         <meta name='author' content='Tania Bajo García' />
-        <meta name='description' content='Información sobre el Real Sporting de Gijón'/>
-        <meta name='keywords' content='sporting,gijon,real,informacion,localizacion,estadio,equipacion' />
-        <title>Información del Real Sporting de Gijón</title>
+        <meta name='description' content='Añadir ojeadores'/>
+        <meta name='keywords' content='sporting,gijon,real,ojeadores,trabajo,jugadores,equipo' />
+        <title>Trabajo</title>
         <link rel='stylesheet' type='text/css' href='estilo/estilo.css' />
         <link rel='stylesheet' type='text/css' href='estilo/estiloOjeadoresPhp.css' />
         <link rel='stylesheet' type='text/css' href='estilo/layout.css' />

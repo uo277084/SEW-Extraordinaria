@@ -19,7 +19,7 @@ class JSONManager {
                 getIdPlayers(apikey, team.id, season);
             },
             error: function () {
-                $("figure").html("Hay problemas para obtener el identificador del Sporting, ¡lo sentimos!");
+                $("aside").html("Hay problemas para obtener el identificador del Sporting, ¡lo sentimos!");
             }
         });
     }
@@ -71,17 +71,17 @@ class JSONManager {
                         }
                     }
                 }
-                $("figure").html(dataToShow);
+                $("aside").html(dataToShow);
             },
             error: function () {
-                $("figure").html("Hay problemas para obtener el identificador del sporting, ¡lo sentimos!");
+                $("aside").html("Hay problemas para obtener el identificador del sporting, ¡lo sentimos!");
             }
         });
     }
 
     loadInfoPlayersJSON() {
         //Crear elemento donde se va a mostrar la información
-        var p = document.createElement("figure");
+        var p = document.createElement("aside");
         p.innerHTML = "";
         $("section").after(p);
 
