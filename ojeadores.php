@@ -149,7 +149,7 @@ class OjeadoresDB {
             else if($line[0] == "A"){
                 $query = "SELECT count(*) FROM Ojea WHERE id_ojeador = ? AND id_jugador = ?";
                 $stmt = $this->db->prepare($query);
-                $stmt->bind_param("ss", $line[8], $line[9]);
+                $stmt->bind_param("ss", $line[3], $line[4]);
                 $stmt->execute();
                 $result = $stmt->get_result();
                 $num=0;
