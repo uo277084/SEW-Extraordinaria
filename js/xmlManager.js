@@ -34,17 +34,26 @@ class XMLManager {
                 var teamName = $(teamData).find("nombre").text();
                 var antiguedad = $(teamData).find("antiguedad").text();
                 var city = $(teamData).find("ciudad").text();
+                //h1
                 datos += "<h1>" + teamName + "</h1>";
+                datos += "<section>";
+                //h2
                 datos += "<h2>Datos del equipo</h2>";
+                //empieza ul
                 datos += "<ul>";
                 datos += "<li>Antiguedad: " + antiguedad + "</li>";
                 datos += "<li>Ciudad: " + city + "</li>";
+                //acaba ul
                 datos += "</ul>";
 
+                //h2
                 datos += "<h2>Nacionalidades de jugadores</h2>";
+
                 //Cogemos los países
                 var countries = $(xml).find("pais")
                 countries.each(function () {
+                    datos += "<section>";
+
                     //Cogemos los datos del país
                     var nombrePais = $(this).attr("nombre").valueOf();
                     var coordLongitud = $(this).find("datosPais").find("coord").find("longitud").text();
@@ -89,40 +98,48 @@ class XMLManager {
                         //Cogemos los equipos antiguos
                         var equiposAntiguos = $(this).find("equipo");
                         if (equiposAntiguos.length > 1) {
-                            datos += "<h6>Sus últimos equipos han sido:</h6>";
+                            datos += "<h5>Sus últimos equipos han sido:</h5>";
                         } else if (equiposAntiguos.length == 1) {
-                            datos += "<h6>Su último equipo ha sido:</h6>";
+                            datos += "<h5>Su último equipo ha sido:</h5>";
                         } else {
-                            datos += "<h6>Solo ha jugado en este equipo</h6>";
+                            datos += "<h5>Solo ha jugado en este equipo</h5>";
                         }
-
-                        equiposAntiguos.each(function () {
-
-                            var oldTeamData = $(this).find("datosEquipo");
-                            var oldTeamName = $(oldTeamData).find("nombre").text();
-                            var oldTeamFechaIni = $(oldTeamData).find("fechaIni");
-                            var oldTeamFechaFin = $(oldTeamData).find("fechaFin");
-                            var oldTeamAntiguedad = $(oldTeamData).find("antiguedad").text();
-                            var oldTeamCity = $(oldTeamData).find("ciudad").text();
-
-                            //Indicamos como se mostrarán los datos del equipo antiguo
-                            datos += "<h4>" + oldTeamName + "</h4>";
-                            datos += "<ul>";
-                            datos += "<li>Fecha inicio contrato: " + oldTeamFechaIni.attr("dia").valueOf() +
-                                "/" + oldTeamFechaIni.attr("mes").valueOf() + "/" +
-                                oldTeamFechaIni.attr("year").valueOf() + "</li>";
-                            datos += "<li>Fecha fin contrato: " + oldTeamFechaFin.attr("dia").valueOf() +
-                                "/" + oldTeamFechaFin.attr("mes").valueOf() + "/" +
-                                oldTeamFechaFin.attr("year").valueOf() + "</li>";
-                            datos += "<li>Antiguedad: " + oldTeamAntiguedad + "</li>";
-                            datos += "<li>Ciudad: " + oldTeamCity + "</li>";
-                            datos += "</ul>";
-                        });
-                        datos += "<figure><img src=" + rutaFoto + " alt=\"Foto de " + nombre + "\"/></figure>";
                         datos += "</section>";
+
+                        if (equiposAntiguos.length > 0) {
+                            datos += "<section>";
+
+                            equiposAntiguos.each(function () {
+
+                                var oldTeamData = $(this).find("datosEquipo");
+                                var oldTeamName = $(oldTeamData).find("nombre").text();
+                                var oldTeamFechaIni = $(oldTeamData).find("fechaIni");
+                                var oldTeamFechaFin = $(oldTeamData).find("fechaFin");
+                                var oldTeamAntiguedad = $(oldTeamData).find("antiguedad").text();
+                                var oldTeamCity = $(oldTeamData).find("ciudad").text();
+
+                                //Indicamos como se mostrarán los datos del equipo antiguo
+                                datos += "<h4>" + oldTeamName + "</h4>";
+                                datos += "<ul>";
+                                datos += "<li>Fecha inicio contrato: " + oldTeamFechaIni.attr("dia").valueOf() +
+                                    "/" + oldTeamFechaIni.attr("mes").valueOf() + "/" +
+                                    oldTeamFechaIni.attr("year").valueOf() + "</li>";
+                                datos += "<li>Fecha fin contrato: " + oldTeamFechaFin.attr("dia").valueOf() +
+                                    "/" + oldTeamFechaFin.attr("mes").valueOf() + "/" +
+                                    oldTeamFechaFin.attr("year").valueOf() + "</li>";
+                                datos += "<li>Antiguedad: " + oldTeamAntiguedad + "</li>";
+                                datos += "<li>Ciudad: " + oldTeamCity + "</li>";
+                                datos += "</ul>";
+                            });
+                            datos += "</section>";
+                        }
+                        datos += "<figure><img src=" + rutaFoto + " alt=\"Foto de " + nombre + "\"/></figure>";
+
                         datos += "</section>";
                     });
+                    datos += "</section>";
                 });
+                datos += "</section>";
                 //Mostramos los datos del equipo
                 dataArea.innerHTML = datos;
             };

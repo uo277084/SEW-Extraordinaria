@@ -15,8 +15,8 @@ li {
     font-size: 14pt;
 }
 
-/*Especificidad: 002*/
-figure h5 {
+/*Especificidad: 001*/
+h5 {
     color: #ce1500;
     font-family: Tahoma, serif;
 }
