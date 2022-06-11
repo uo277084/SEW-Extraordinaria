@@ -228,27 +228,6 @@ class OjeadoresDB {
     }
 
     /**
-     * Función que devuelve el atributo message
-     */
-    public function getMessage() {
-        return $this->message;
-    }
-
-    /**
-     * Función que le da el valor pasado por parámetro al atributo message
-     */
-    public function setMessage($messagetext) {
-        $this->message = $messagetext;
-    }
-
-    /**
-     * Función que le da valor vacío al atributo message
-     */
-    public function clearMessage() {
-        $this->message = "";
-    }
-
-    /**
      * Función que recoge los nombres y apellidos de todos los ojeadores
      */
     public function getOjeadores() {
@@ -734,7 +713,6 @@ if(isset($_SESSION['db'])){
 }
 
 $_SESSION['db']->clearHTML();
-$_SESSION['db']->clearMessage();
 
 if (count($_POST) > 0){
     if(isset($_POST['equipoName'])){
@@ -791,7 +769,6 @@ if (count($_POST) > 0){
     }
 }
 
-$messageShow = $_SESSION['db']->getMessage();
 $listaOjeadores = $_SESSION['db']->getOjeadores();
 $htmlShow = $_SESSION['db']->getHTML();
 
@@ -811,6 +788,7 @@ echo
         <link rel='stylesheet' type='text/css' href='estilo/estilo.css' />
         <link rel='stylesheet' type='text/css' href='estilo/estiloOjeadoresPhp.css' />
         <link rel='stylesheet' type='text/css' href='estilo/layout.css' />
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
     </head>
     
     <body>

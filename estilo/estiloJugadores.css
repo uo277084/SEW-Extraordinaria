@@ -32,3 +32,9 @@ fieldset {
 fieldset input {
     margin-left: 2.5em;
 }
+
+/*Especificidad: 002*/
+figure img {
+    width: 40%;
+    height: auto;
+}

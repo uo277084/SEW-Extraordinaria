@@ -38,7 +38,7 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                 <ciudad>
                     Mérida
                 </ciudad>
-                <foto ruta="../multimedia/xml/cuellar.jpg"></foto>
+                <foto ruta="./multimedia/xml/cuellar.jpg"></foto>
             </datosJugador>
             <equipo>
                 <datosEquipo>
@@ -84,7 +84,7 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                 <ciudad>
                     Vigo
                 </ciudad>
-                <foto ruta="../multimedia/xml/diego-m.jpg"></foto>
+                <foto ruta="./multimedia/xml/diego-m.jpg"></foto>
             </datosJugador>
             <equipo>
                 <datosEquipo>
@@ -130,7 +130,7 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                 <ciudad>
                     Gijón
                 </ciudad>
-                <foto ruta="../multimedia/xml/pedro-diaz.jpg"></foto>
+                <foto ruta="./multimedia/xml/pedro-diaz.jpg"></foto>
             </datosJugador>
         </jugador>
         <jugador nombre="Jonathan" apellidos="Rodríguez Menéndez" edad="30">
@@ -142,7 +142,7 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                 <ciudad>
                     Cangas del Narcea
                 </ciudad>
-                <foto ruta="../multimedia/xml/jony.jpg"></foto>
+                <foto ruta="./multimedia/xml/jony.jpg"></foto>
             </datosJugador>
             <equipo>
                 <datosEquipo>
@@ -188,7 +188,7 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                 <ciudad>
                     Gijón
                 </ciudad>
-                <foto ruta="../multimedia/xml/rivera.jpg"></foto>
+                <foto ruta="./multimedia/xml/rivera.jpg"></foto>
             </datosJugador>
             <equipo>
                 <datosEquipo>
@@ -234,7 +234,7 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                 <ciudad>
                     Valencia
                 </ciudad>
-                <foto ruta="../multimedia/xml/villalba.jpg"></foto>
+                <foto ruta="./multimedia/xml/villalba.jpg"></foto>
             </datosJugador>
             <equipo>
                 <datosEquipo>
@@ -280,7 +280,7 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                 <ciudad>
                     Gijón
                 </ciudad>
-                <foto ruta="../multimedia/xml/gaspar.jpg"></foto>
+                <foto ruta="./multimedia/xml/gaspar.jpg"></foto>
             </datosJugador>
         </jugador>
     </pais>
@@ -310,7 +310,7 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                 <ciudad>
                     Raión de Horodok
                 </ciudad>
-                <foto ruta="../multimedia/xml/kravets.jpg"></foto>
+                <foto ruta="./multimedia/xml/kravets.jpg"></foto>
             </datosJugador>
             <equipo>
                 <datosEquipo>
@@ -356,7 +356,7 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                 <ciudad>
                     Lugansk
                 </ciudad>
-                <foto ruta="../multimedia/xml/bogdan.jpg"></foto>
+                <foto ruta="./multimedia/xml/bogdan.jpg"></foto>
             </datosJugador>
             <equipo>
                 <datosEquipo>
@@ -403,7 +403,7 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                 <ciudad>
                     Corbeil-Essonnes
                 </ciudad>
-                <foto ruta="../multimedia/xml/babin.jpg"></foto>
+                <foto ruta="./multimedia/xml/babin.jpg"></foto>
             </datosJugador>
             <equipo>
                 <datosEquipo>
@@ -467,7 +467,7 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                 <ciudad>
                     Ciudad de Panamá
                 </ciudad>
-                <foto ruta="../multimedia/xml/puma.jpg"></foto>
+                <foto ruta="./multimedia/xml/puma.jpg"></foto>
             </datosJugador>
             <equipo>
                 <datosEquipo>
@@ -531,7 +531,7 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                 <ciudad>
                     Obrenovac
                 </ciudad>
-                <foto ruta="../multimedia/xml/uros.jpg"></foto>
+                <foto ruta="./multimedia/xml/uros.jpg"></foto>
             </datosJugador>
             <equipo>
                 <datosEquipo>

@@ -66,7 +66,7 @@ class XMLManager {
                     //Cogemos los jugadores del país
                     var jugadores = $(this).find("jugador");
                     jugadores.each(function () {
-                        datos += "<figure>";
+                        datos += "<section>";
                         //Cogemos los datos del jugador
                         var nombre = $(this).attr("nombre").valueOf() + " " + $(this).attr("apellidos").valueOf();
                         var fechaNac = $(this).find("datosJugador").find("fechaNac");
@@ -75,6 +75,7 @@ class XMLManager {
                         var fechaYear = fechaNac.attr("year").valueOf();
                         var altura = $(this).find("datosJugador").find("altura").text();
                         var ciudad = $(this).find("datosJugador").find("ciudad").text();
+                        var rutaFoto = $(this).find("datosJugador").find("foto").attr("ruta").valueOf();
 
                         //Indicamos como se mostrarán los datos del jugador
                         datos += "<h5>" + nombre + "</h5>";
@@ -82,10 +83,9 @@ class XMLManager {
                         datos += "<li>Fecha de nacimiento: " + fechaDia + "/" + fechaMes + "/" + fechaYear + "</li>";
                         datos += "<li>Altura: " + altura + "</li>";
                         datos += "<li>Ciudad: " + ciudad + "</li>";
-                        //Poner una href para ver la foto (?)
                         datos += "</ul>";
 
-                        datos += "<figure>";
+                        datos += "<section>";
                         //Cogemos los equipos antiguos
                         var equiposAntiguos = $(this).find("equipo");
                         if (equiposAntiguos.length > 1) {
@@ -118,8 +118,9 @@ class XMLManager {
                             datos += "<li>Ciudad: " + oldTeamCity + "</li>";
                             datos += "</ul>";
                         });
-                        datos += "</figure>";
-                        datos += "</figure>";
+                        datos += "<figure><img src=" + rutaFoto + " alt=\"Foto de " + nombre + "\"/></figure>";
+                        datos += "</section>";
+                        datos += "</section>";
                     });
                 });
                 //Mostramos los datos del equipo
