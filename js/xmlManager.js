@@ -104,10 +104,8 @@ class XMLManager {
                         } else {
                             datos += "<h5>Solo ha jugado en este equipo</h5>";
                         }
-                        datos += "</section>";
 
                         if (equiposAntiguos.length > 0) {
-                            datos += "<section>";
 
                             equiposAntiguos.each(function () {
 
@@ -119,7 +117,7 @@ class XMLManager {
                                 var oldTeamCity = $(oldTeamData).find("ciudad").text();
 
                                 //Indicamos como se mostrarán los datos del equipo antiguo
-                                datos += "<h4>" + oldTeamName + "</h4>";
+                                datos += "<p><b>" + oldTeamName + "</b></p>";
                                 datos += "<ul>";
                                 datos += "<li>Fecha inicio contrato: " + oldTeamFechaIni.attr("dia").valueOf() +
                                     "/" + oldTeamFechaIni.attr("mes").valueOf() + "/" +
