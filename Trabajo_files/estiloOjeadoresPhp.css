@@ -1,0 +1,27 @@
+/*Especificidad: 001*/
+caption {
+    font-weight: bold;
+    font-size: 18pt;
+}
+
+/*Especificidad: 001*/
+td,
+th {
+    width: 35rem;
+    height: 2rem;
+    text-align: center;
+    background-color: #A41313;
+    color: #fff;
+}
+
+/*Especificidad: 001*/
+h3 {
+    color: #a51100;
+    font-family: Tahoma, serif;
+}
+
+/*Especificidad: 001*/
+h4 {
+    color: #7d0d00;
+    font-family: Tahoma, serif;
+}
