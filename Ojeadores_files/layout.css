@@ -1,0 +1,29 @@
+/*Especificidad: 001*/
+body{
+    display: grid;
+    grid-template-areas: "hea"
+        "nav"
+        "main"
+        "foo"
+}
+
+/*Especificidad: 001*/
+header{
+    grid-area: hea;
+}
+
+/*Especificidad: 001*/
+nav{
+    grid-area: nav;
+    text-align: center;
+}
+
+/*Especificidad: 001*/
+main{
+    grid-area: main;
+}
+
+/*Especificidad: 001*/
+footer{
+    grid-area: foo;
+}
