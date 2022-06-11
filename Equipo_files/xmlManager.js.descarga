@@ -38,16 +38,16 @@ class XMLManager {
                 datos += "<h1>" + teamName + "</h1>";
                 datos += "<section>";
                 //h2
-                datos += "<h2>Datos del equipo</h2>";
+                datos += "<section><h2>Datos del equipo</h2>";
                 //empieza ul
                 datos += "<ul>";
                 datos += "<li>Antiguedad: " + antiguedad + "</li>";
                 datos += "<li>Ciudad: " + city + "</li>";
                 //acaba ul
-                datos += "</ul>";
+                datos += "</ul></section>";
 
                 //h2
-                datos += "<h2>Nacionalidades de jugadores</h2>";
+                datos += "<section><h2>Nacionalidades de jugadores</h2>";
 
                 //Cogemos los países
                 var countries = $(xml).find("pais")
@@ -62,20 +62,20 @@ class XMLManager {
                     var continente = $(this).find("datosPais").find("continente").text();
 
                     //Indicamos como se mostrarán los datos del país
-                    datos += "<h3>" + nombrePais + "</h3>";
+                    datos += "<h3>" + nombrePais + "</h3><section>";
                     datos += "<h4>Datos del país</h4>";
                     datos += "<ul>";
                     datos += "<li>Coordenadas: latitud->" + coordLatitud + " longitud->" + coordLongitud + "</li>";
                     datos += "<li>Poblacion: " + poblacion + "</li>";
                     datos += "<li>Continente: " + continente + "</li>";
-                    datos += "</ul>";
+                    datos += "</ul></section>";
 
-                    datos += "<h4>Jugadores</h4>";
+                    datos += "<section><h4>Jugadores</h4>";
 
                     //Cogemos los jugadores del país
                     var jugadores = $(this).find("jugador");
                     jugadores.each(function () {
-                        datos += "<section>";
+                        datos += "<section><section>";
                         //Cogemos los datos del jugador
                         var nombre = $(this).attr("nombre").valueOf() + " " + $(this).attr("apellidos").valueOf();
                         var fechaNac = $(this).find("datosJugador").find("fechaNac");
@@ -92,7 +92,7 @@ class XMLManager {
                         datos += "<li>Fecha de nacimiento: " + fechaDia + "/" + fechaMes + "/" + fechaYear + "</li>";
                         datos += "<li>Altura: " + altura + "</li>";
                         datos += "<li>Ciudad: " + ciudad + "</li>";
-                        datos += "</ul>";
+                        datos += "</ul></section>";
 
                         datos += "<section>";
                         //Cogemos los equipos antiguos
@@ -137,9 +137,9 @@ class XMLManager {
 
                         datos += "</section>";
                     });
-                    datos += "</section>";
+                    datos += "</section></section>";
                 });
-                datos += "</section>";
+                datos += "</section></section>";
                 //Mostramos los datos del equipo
                 dataArea.innerHTML = datos;
             };
