@@ -36,7 +36,6 @@ class XMLManager {
                 var city = $(teamData).find("ciudad").text();
                 //h1
                 datos += "<h1>" + teamName + "</h1>";
-                datos += "<section>";
                 //h2
                 datos += "<section><h2>Datos del equipo</h2>";
                 //empieza ul
@@ -75,7 +74,7 @@ class XMLManager {
                     //Cogemos los jugadores del país
                     var jugadores = $(this).find("jugador");
                     jugadores.each(function () {
-                        datos += "<section><section>";
+                        datos += "<section>";
                         //Cogemos los datos del jugador
                         var nombre = $(this).attr("nombre").valueOf() + " " + $(this).attr("apellidos").valueOf();
                         var fechaNac = $(this).find("datosJugador").find("fechaNac");
@@ -132,12 +131,10 @@ class XMLManager {
                             datos += "</section>";
                         }
                         datos += "<figure><img src=" + rutaFoto + " alt=\"Foto de " + nombre + "\"/></figure>";
-
-                        datos += "</section>";
                     });
                     datos += "</section></section>";
                 });
-                datos += "</section></section>";
+                datos += "</section>";
                 //Mostramos los datos del equipo
                 dataArea.innerHTML = datos;
             };
