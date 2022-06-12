@@ -119,7 +119,7 @@ class OjeadoresAdd {
             //cerramos statement
             $stmt->close();
         }
-        $this->message .="Datos cargados correctamente";
+        $this->message .="Datos cargados correctamente. <a href='ojeadores.php'>Volver</a> a la página de ojeadores.";
         
     }
 
@@ -200,7 +200,7 @@ if(isset($_SESSION['dba'])){
     $_SESSION['dba'] = new OjeadoresAdd();
 }
 
-$_SESSION['dba']->clearMessage();
+$_SESSION['dba']->setMessage("<a href='ojeadores.php'>Volver</a>");
 
 if (count($_POST) > 0){
 
