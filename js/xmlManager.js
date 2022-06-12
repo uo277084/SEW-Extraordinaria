@@ -87,6 +87,7 @@ class XMLManager {
 
                         //Indicamos como se mostrarán los datos del jugador
                         datos += "<h5>" + nombre + "</h5>";
+                        datos += "<figure><img src=" + rutaFoto + " alt=\"Foto de " + nombre + "\"/></figure>";
                         datos += "<ul>";
                         datos += "<li>Fecha de nacimiento: " + fechaDia + "/" + fechaMes + "/" + fechaYear + "</li>";
                         datos += "<li>Altura: " + altura + "</li>";
@@ -130,7 +131,6 @@ class XMLManager {
                             });
                             datos += "</section>";
                         }
-                        datos += "<figure><img src=" + rutaFoto + " alt=\"Foto de " + nombre + "\"/></figure>";
                     });
                     datos += "</section></section>";
                 });
