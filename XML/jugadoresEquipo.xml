@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<equipo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-xsi:noNamespaceSchemaLocation="equipo.xsd">
+<equipo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="equipo.xsd">
     <datosEquipo>
         <nombre>
             Real Sporting de Gijón
@@ -38,7 +37,7 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                 <ciudad>
                     Mérida
                 </ciudad>
-                <foto ruta="./multimedia/xml/cuellar.jpg"></foto>
+                <foto ruta="https://res.cloudinary.com/asw2122/image/upload/v1655033211/sew2122/cuellar.jpg"></foto>
             </datosJugador>
             <equipo>
                 <datosEquipo>
@@ -46,8 +45,8 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                         C. D. Leganés
                     </nombre>
                     <fechas>
-                    <fechaIni dia="14" mes="07" year="2017"></fechaIni>
-                    <fechaFin dia="29" mes="06" year="2021"></fechaFin>
+                        <fechaIni dia="14" mes="07" year="2017"></fechaIni>
+                        <fechaFin dia="29" mes="06" year="2021"></fechaFin>
                     </fechas>
                     <antiguedad>
                         1928
@@ -63,8 +62,8 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                         Real Sporting de Gijón
                     </nombre>
                     <fechas>
-                    <fechaIni dia="27" mes="12" year="2008"></fechaIni>
-                    <fechaFin dia="17" mes="06" year="2017"></fechaFin>
+                        <fechaIni dia="27" mes="12" year="2008"></fechaIni>
+                        <fechaFin dia="17" mes="06" year="2017"></fechaFin>
                     </fechas>
                     <antiguedad>
                         1905
@@ -84,7 +83,7 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                 <ciudad>
                     Vigo
                 </ciudad>
-                <foto ruta="./multimedia/xml/diego-m.jpg"></foto>
+                <foto ruta="https://res.cloudinary.com/asw2122/image/upload/v1655033211/sew2122/diego-m.jpg"></foto>
             </datosJugador>
             <equipo>
                 <datosEquipo>
@@ -92,8 +91,8 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                         Levante U. D.
                     </nombre>
                     <fechas>
-                    <fechaIni dia="30" mes="12" year="2014"></fechaIni>
-                    <fechaFin dia="04" mes="06" year="2016"></fechaFin>
+                        <fechaIni dia="30" mes="12" year="2014"></fechaIni>
+                        <fechaFin dia="04" mes="06" year="2016"></fechaFin>
                     </fechas>
                     <antiguedad>
                         1909
@@ -109,8 +108,8 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                         Valladolid C. F.
                     </nombre>
                     <fechas>
-                    <fechaIni dia="25" mes="06" year="2013"></fechaIni>
-                    <fechaFin dia="11" mes="06" year="2014"></fechaFin>
+                        <fechaIni dia="25" mes="06" year="2013"></fechaIni>
+                        <fechaFin dia="11" mes="06" year="2014"></fechaFin>
                     </fechas>
                     <antiguedad>
                         1928
@@ -130,7 +129,7 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                 <ciudad>
                     Gijón
                 </ciudad>
-                <foto ruta="./multimedia/xml/pedro-diaz.jpg"></foto>
+                <foto ruta="https://res.cloudinary.com/asw2122/image/upload/v1655033211/sew2122/pedro-diaz.jpg"></foto>
             </datosJugador>
         </jugador>
         <jugador nombre="Jonathan" apellidos="Rodríguez Menéndez" edad="30">
@@ -142,7 +141,7 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                 <ciudad>
                     Cangas del Narcea
                 </ciudad>
-                <foto ruta="./multimedia/xml/jony.jpg"></foto>
+                <foto ruta="https://res.cloudinary.com/asw2122/image/upload/v1655033211/sew2122/jony.jpg"></foto>
             </datosJugador>
             <equipo>
                 <datosEquipo>
@@ -150,8 +149,8 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                         C. A. Osasuna
                     </nombre>
                     <fechas>
-                    <fechaIni dia="22" mes="08" year="2020"></fechaIni>
-                    <fechaFin dia="20" mes="12" year="2021"></fechaFin>
+                        <fechaIni dia="22" mes="08" year="2020"></fechaIni>
+                        <fechaFin dia="20" mes="12" year="2021"></fechaFin>
                     </fechas>
                     <antiguedad>
                         1920
@@ -167,8 +166,8 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                         S. S. Lazio
                     </nombre>
                     <fechas>
-                    <fechaIni dia="18" mes="07" year="2019"></fechaIni>
-                    <fechaFin dia="09" mes="07" year="2020"></fechaFin>
+                        <fechaIni dia="18" mes="07" year="2019"></fechaIni>
+                        <fechaFin dia="09" mes="07" year="2020"></fechaFin>
                     </fechas>
                     <antiguedad>
                         1900
@@ -188,7 +187,7 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                 <ciudad>
                     Gijón
                 </ciudad>
-                <foto ruta="./multimedia/xml/rivera.jpg"></foto>
+                <foto ruta="https://res.cloudinary.com/asw2122/image/upload/v1655033211/sew2122/rivera.jpg"></foto>
             </datosJugador>
             <equipo>
                 <datosEquipo>
@@ -196,8 +195,8 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                         Girona F. C.
                     </nombre>
                     <fechas>
-                    <fechaIni dia="29" mes="07" year="2020"></fechaIni>
-                    <fechaFin dia="30" mes="12" year="2021"></fechaFin>
+                        <fechaIni dia="29" mes="07" year="2020"></fechaIni>
+                        <fechaFin dia="30" mes="12" year="2021"></fechaFin>
                     </fechas>
                     <antiguedad>
                         1930
@@ -213,8 +212,8 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                         C. D. Leganés
                     </nombre>
                     <fechas>
-                    <fechaIni dia="30" mes="06" year="2019"></fechaIni>
-                    <fechaFin dia="09" mes="07" year="2020"></fechaFin>
+                        <fechaIni dia="30" mes="06" year="2019"></fechaIni>
+                        <fechaFin dia="09" mes="07" year="2020"></fechaFin>
                     </fechas>
                     <antiguedad>
                         1928
@@ -234,7 +233,7 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                 <ciudad>
                     Valencia
                 </ciudad>
-                <foto ruta="./multimedia/xml/villalba.jpg"></foto>
+                <foto ruta="https://res.cloudinary.com/asw2122/image/upload/v1655033211/sew2122/villalba.jpg"></foto>
             </datosJugador>
             <equipo>
                 <datosEquipo>
@@ -242,8 +241,8 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                         U. D. Almería
                     </nombre>
                     <fechas>
-                    <fechaIni dia="28" mes="07" year="2020"></fechaIni>
-                    <fechaFin dia="02" mes="07" year="2021"></fechaFin>
+                        <fechaIni dia="28" mes="07" year="2020"></fechaIni>
+                        <fechaFin dia="02" mes="07" year="2021"></fechaFin>
                     </fechas>
                     <antiguedad>
                         1989
@@ -259,8 +258,8 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                         Birmingham City F. C.
                     </nombre>
                     <fechas>
-                    <fechaIni dia="10" mes="06" year="2019"></fechaIni>
-                    <fechaFin dia="04" mes="07" year="2020"></fechaFin>
+                        <fechaIni dia="10" mes="06" year="2019"></fechaIni>
+                        <fechaFin dia="04" mes="07" year="2020"></fechaFin>
                     </fechas>
                     <antiguedad>
                         1875
@@ -280,7 +279,7 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                 <ciudad>
                     Gijón
                 </ciudad>
-                <foto ruta="./multimedia/xml/gaspar.jpg"></foto>
+                <foto ruta="https://res.cloudinary.com/asw2122/image/upload/v1655033211/sew2122/gaspar.jpg"></foto>
             </datosJugador>
         </jugador>
     </pais>
@@ -310,7 +309,7 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                 <ciudad>
                     Raión de Horodok
                 </ciudad>
-                <foto ruta="./multimedia/xml/kravets.jpg"></foto>
+                <foto ruta="https://res.cloudinary.com/asw2122/image/upload/v1655033211/sew2122/kravets.jpg"></foto>
             </datosJugador>
             <equipo>
                 <datosEquipo>
@@ -318,8 +317,8 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                         Lech Poznan
                     </nombre>
                     <fechas>
-                    <fechaIni dia="29" mes="01" year="2020"></fechaIni>
-                    <fechaFin dia="01" mes="08" year="2021"></fechaFin>
+                        <fechaIni dia="29" mes="01" year="2020"></fechaIni>
+                        <fechaFin dia="01" mes="08" year="2021"></fechaFin>
                     </fechas>
                     <antiguedad>
                         1922
@@ -335,8 +334,8 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                         C. D. Lugo
                     </nombre>
                     <fechas>
-                    <fechaIni dia="10" mes="01" year="2019"></fechaIni>
-                    <fechaFin dia="13" mes="01" year="2020"></fechaFin>
+                        <fechaIni dia="10" mes="01" year="2019"></fechaIni>
+                        <fechaFin dia="13" mes="01" year="2020"></fechaFin>
                     </fechas>
                     <antiguedad>
                         1953
@@ -356,7 +355,7 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                 <ciudad>
                     Lugansk
                 </ciudad>
-                <foto ruta="./multimedia/xml/bogdan.jpg"></foto>
+                <foto ruta="https://res.cloudinary.com/asw2122/image/upload/v1655033211/sew2122/bogdan.jpg"></foto>
             </datosJugador>
             <equipo>
                 <datosEquipo>
@@ -364,8 +363,8 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                         U. D. San Sebastián de los Reyes
                     </nombre>
                     <fechas>
-                    <fechaIni dia="19" mes="01" year="2017"></fechaIni>
-                    <fechaFin dia="07" mes="08" year="2018"></fechaFin>
+                        <fechaIni dia="19" mes="01" year="2017"></fechaIni>
+                        <fechaFin dia="07" mes="08" year="2018"></fechaFin>
                     </fechas>
                     <antiguedad>
                         1971
@@ -403,7 +402,7 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                 <ciudad>
                     Corbeil-Essonnes
                 </ciudad>
-                <foto ruta="./multimedia/xml/babin.jpg"></foto>
+                <foto ruta="https://res.cloudinary.com/asw2122/image/upload/v1655033211/sew2122/babin.jpg"></foto>
             </datosJugador>
             <equipo>
                 <datosEquipo>
@@ -411,8 +410,8 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                         Maccabi Tel Aviv F. C.
                     </nombre>
                     <fechas>
-                    <fechaIni dia="09" mes="08" year="2017"></fechaIni>
-                    <fechaFin dia="17" mes="06" year="2018"></fechaFin>
+                        <fechaIni dia="09" mes="08" year="2017"></fechaIni>
+                        <fechaFin dia="17" mes="06" year="2018"></fechaFin>
                     </fechas>
                     <antiguedad>
                         1906
@@ -428,8 +427,8 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                         Real Sporting de Gijón
                     </nombre>
                     <fechas>
-                    <fechaIni dia="12" mes="01" year="2016"></fechaIni>
-                    <fechaFin dia="15" mes="07" year="2017"></fechaFin>
+                        <fechaIni dia="12" mes="01" year="2016"></fechaIni>
+                        <fechaFin dia="15" mes="07" year="2017"></fechaFin>
                     </fechas>
                     <antiguedad>
                         1905
@@ -467,7 +466,7 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                 <ciudad>
                     Ciudad de Panamá
                 </ciudad>
-                <foto ruta="./multimedia/xml/puma.jpg"></foto>
+                <foto ruta="https://res.cloudinary.com/asw2122/image/upload/v1655033211/sew2122/puma.jpg"></foto>
             </datosJugador>
             <equipo>
                 <datosEquipo>
@@ -475,8 +474,8 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                         C. D. Lugo
                     </nombre>
                     <fechas>
-                    <fechaIni dia="28" mes="01" year="2020"></fechaIni>
-                    <fechaFin dia="08" mes="07" year="2021"></fechaFin>
+                        <fechaIni dia="28" mes="01" year="2020"></fechaIni>
+                        <fechaFin dia="08" mes="07" year="2021"></fechaFin>
                     </fechas>
                     <antiguedad>
                         1953
@@ -492,8 +491,8 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                         Deportivo Alavés
                     </nombre>
                     <fechas>
-                    <fechaIni dia="30" mes="06" year="2019"></fechaIni>
-                    <fechaFin dia="03" mes="01" year="2020"></fechaFin>
+                        <fechaIni dia="30" mes="06" year="2019"></fechaIni>
+                        <fechaFin dia="03" mes="01" year="2020"></fechaFin>
                     </fechas>
                     <antiguedad>
                         1921
@@ -531,7 +530,7 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                 <ciudad>
                     Obrenovac
                 </ciudad>
-                <foto ruta="./multimedia/xml/uros.jpg"></foto>
+                <foto ruta="https://res.cloudinary.com/asw2122/image/upload/v1655033211/sew2122/uros.jpg"></foto>
             </datosJugador>
             <equipo>
                 <datosEquipo>
@@ -539,8 +538,8 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                         Olympiacos F. C.
                     </nombre>
                     <fechas>
-                    <fechaIni dia="29" mes="12" year="2017"></fechaIni>
-                    <fechaFin dia="26" mes="06" year="2018"></fechaFin>
+                        <fechaIni dia="29" mes="12" year="2017"></fechaIni>
+                        <fechaFin dia="26" mes="06" year="2018"></fechaFin>
                     </fechas>
                     <antiguedad>
                         1925
@@ -556,8 +555,8 @@ xsi:noNamespaceSchemaLocation="equipo.xsd">
                         F. K. Partizan
                     </nombre>
                     <fechas>
-                    <fechaIni dia="09" mes="01" year="2016"></fechaIni>
-                    <fechaFin dia="05" mes="12" year="2017"></fechaFin>
+                        <fechaIni dia="09" mes="01" year="2016"></fechaIni>
+                        <fechaFin dia="05" mes="12" year="2017"></fechaFin>
                     </fechas>
                     <antiguedad>
                         1945
